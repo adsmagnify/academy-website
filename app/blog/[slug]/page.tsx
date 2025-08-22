@@ -16,19 +16,22 @@ interface PageProps {
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
+// Generate static params for all blog pages
 export async function generateStaticParams() {
   return blogData.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// Replace the component declaration with this:
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+// ✅ New: Proper SEO-friendly metadata generation
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const post = blogData.find((p) => p.slug === params.slug);
 
   if (!post) {
-    notFound();
-  };
+    return {
+      title: "Post Not Found | Adsmagnify Academy Blog",
+      description: "The blog post you are looking for does not exist.",
+    };
   }
 
   return {
@@ -53,7 +56,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   };
 }
 
-// If you're using the new App Router with async components, use this:
+// ✅ Keep only ONE export default function
 export default async function BlogPostPage({ params }: PageProps) {
   const post = blogData.find((p) => p.slug === params.slug);
 
