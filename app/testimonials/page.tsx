@@ -93,7 +93,7 @@ export default function TestimonialsPage() {
                     />
                     <div>
                       <div className="font-bold text-primary">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.company}</div>
+                      <div className="text-sm text-gray-600">{testimonial.course}</div>
                     </div>
                   </div>
                   
@@ -153,7 +153,7 @@ export default function TestimonialsPage() {
                           />
                           <div>
                             <div className="font-medium text-primary text-sm">{testimonial.name}</div>
-                            <div className="text-xs text-gray-500">{testimonial.company}</div>
+                            <div className="text-xs text-gray-500">{testimonial.course}</div>
                           </div>
                         </div>
                       </CardContent>
@@ -190,7 +190,7 @@ export default function TestimonialsPage() {
                           />
                           <div>
                             <div className="font-medium text-primary text-sm">{testimonial.name}</div>
-                            <div className="text-xs text-gray-500">{testimonial.company}</div>
+                            <div className="text-xs text-gray-500">{testimonial.course}</div>
                           </div>
                         </div>
                       </CardContent>
