@@ -12,7 +12,8 @@ import blogData from "@/data/blog.json";
 
 // Define the proper interface for params
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export async function generateStaticParams() {
@@ -22,8 +23,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const post = blogData.find((p) => p.slug === slug);
+  const post = blogData.find((p) => p.slug === params.slug);
 
   if (!post) {
     return {
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://adsmagnify.vercel.app/blog/${slug}`,
+      url: `https://adsmagnify.vercel.app/blog/${params.slug}`,
       images: [post.image],
       type: "article",
       publishedTime: post.publishedAt,
@@ -53,9 +53,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+// If you're using the new App Router with async components, use this:
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params;
-  const post = blogData.find((p) => p.slug === slug);
+  const post = blogData.find((p) => p.slug === params.slug);
 
   if (!post) {
     notFound();
