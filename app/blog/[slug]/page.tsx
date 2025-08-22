@@ -10,10 +10,10 @@ import CopyLinkButton from "@/components/common/copy-link-button";
 // Import blog data
 import blogData from "@/data/blog.json";
 
-// Define the proper interface for params
+// Define the proper interface for params (Next.js 15 compatible)
 interface PageProps {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Generate static params for all blog pages
@@ -25,7 +25,8 @@ export async function generateStaticParams() {
 
 // ✅ New: Proper SEO-friendly metadata generation
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = blogData.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const post = blogData.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://adsmagnify.vercel.app/blog/${params.slug}`,
+      url: `https://adsmagnify.vercel.app/blog/${slug}`,
       images: [post.image],
       type: "article",
       publishedTime: post.publishedAt,
@@ -58,7 +59,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // ✅ Keep only ONE export default function
 export default async function BlogPostPage({ params }: PageProps) {
-  const post = blogData.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const post = blogData.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
