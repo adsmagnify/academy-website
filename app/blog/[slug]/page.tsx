@@ -10,6 +10,7 @@ import CopyLinkButton from "@/components/common/copy-link-button";
 // Import blog data
 import blogData from "@/data/blog.json";
 
+// Define the proper interface for params
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
