@@ -66,8 +66,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        {/* Google Analytics - Replace GA_MEASUREMENT_ID with your actual Google Analytics ID */}
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -77,7 +77,7 @@ export default function RootLayout({
               gtag('config', 'GA_MEASUREMENT_ID');
             `,
           }}
-        />
+        /> */}
       </head>
       <body className="font-satoshi">
         <Header />
