@@ -10,10 +10,8 @@ import CopyLinkButton from "@/components/common/copy-link-button";
 // Import blog data
 import blogData from "@/data/blog.json";
 
-interface BlogPostProps {
-  params: {
-    slug: string;
-  };
+interface PageProps {
+  params: { slug: string };
 }
 
 export async function generateStaticParams() {
@@ -22,7 +20,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const post = blogData.find(p => p.slug === params.slug);
   
   if (!post) {
