@@ -22,13 +22,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+// Replace the component declaration with this:
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogData.find((p) => p.slug === params.slug);
 
   if (!post) {
-    return {
-      title: "Post Not Found",
-    };
+    notFound();
+  };
   }
 
   return {
