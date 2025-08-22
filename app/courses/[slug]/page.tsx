@@ -24,9 +24,10 @@ import coursesData from "@/data/courses.json";
 import instructorsData from "@/data/instructors.json";
 
 interface CoursePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateStaticParams() {
@@ -36,7 +37,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
-  const course = coursesData.find(c => c.slug === params.slug);
+  const { slug } = await params;
+  const course = coursesData.find(c => c.slug === slug);
   
   if (!course) {
     return {
@@ -51,13 +53,14 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
     openGraph: {
       title: `${course.name} | Adsmagnify Academy`,
       description: course.overview,
-      url: `https://adsmagnify.vercel.app/courses/${params.slug}`
+      url: `https://adsmagnify.vercel.app/courses/${slug}`
     }
   };
 }
 
-export default function CoursePage({ params }: CoursePageProps) {
-  const course = coursesData.find(c => c.slug === params.slug);
+export default async function CoursePage({ params }: CoursePageProps) {
+  const { slug } = await params;
+  const course = coursesData.find(c => c.slug === slug);
   
   if (!course) {
     notFound();
