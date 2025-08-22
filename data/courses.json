@@ -1,0 +1,206 @@
+[
+  {
+    "slug": "ai-performance-marketing",
+    "name": "AI Performance Marketing Course",
+    "shortName": "AI Performance Marketing",
+    "priceINR": 15000,
+    "duration": "6 Weeks (Weekend Batches)",
+    "mode": "Offline - Classroom",
+    "overview": "Master AI-driven Meta Ads (Facebook & Instagram) and Google Ads campaigns from setup to scaling, using real client accounts, the latest AI tools, and a 10-hour in-house Shadow Internship.",
+    "whoItsFor": [
+      "Marketing professionals looking to upskill with AI",
+      "Fresh graduates wanting to start a digital marketing career",
+      "Business owners wanting to run their own ads",
+      "Freelancers looking to offer performance marketing services"
+    ],
+    "modules": [
+      {
+        "title": "Introduction to Digital Marketing",
+        "topics": ["Digital marketing landscape", "Consumer behavior online", "Marketing funnel fundamentals"]
+      },
+      {
+        "title": "Meta Ads Mastery",
+        "topics": ["Campaign structure and setup", "Advanced targeting strategies", "Creative testing frameworks", "Automation and scaling"]
+      },
+      {
+        "title": "Google Ads Mastery", 
+        "topics": ["Search campaigns", "Display advertising", "YouTube ads", "Performance Max campaigns", "Shopping campaigns"]
+      },
+      {
+        "title": "AI Creative Testing Frameworks",
+        "topics": ["A/B testing with AI insights", "Creative optimization", "Performance prediction models"]
+      },
+      {
+        "title": "AI Tools for Ads",
+        "topics": ["ChatGPT-5 for ad copy", "Gemini for strategy", "Bolt.AI for automation", "Heygen for video creation", "ElevenLabs for voiceovers"]
+      },
+      {
+        "title": "Google Analytics 4 & Tag Manager",
+        "topics": ["GA4 setup and configuration", "Conversion tracking", "Custom events", "Tag Manager implementation"]
+      },
+      {
+        "title": "Advanced Campaign Optimization & Scaling",
+        "topics": ["Budget optimization", "Bid strategies", "Account structure", "Scaling profitable campaigns"]
+      },
+      {
+        "title": "Life Skills Training for Marketers",
+        "topics": ["Client communication", "Project management", "Presentation skills", "Industry networking"]
+      }
+    ],
+    "outcomes": [
+      "Plan, launch, and optimize Meta & Google Ads campaigns with AI copilots",
+      "Integrate advanced tracking (GA4, GTM, FB Pixel)",
+      "Scale ad accounts profitably and present client-ready strategies", 
+      "Gain hands-on agency experience through the Shadow Internship"
+    ],
+    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs"],
+    "upcomingBatches": [
+      {
+        "startDate": "2025-09-26",
+        "schedule": "Saturdays & Sundays, 10:00 AM - 6:00 PM",
+        "seats": "4 students only"
+      },
+      {
+        "startDate": "2025-10-11", 
+        "schedule": "Saturdays & Sundays, 10:00 AM - 6:00 PM",
+        "seats": "4 students only"
+      }
+    ]
+  },
+  {
+    "slug": "ai-seo",
+    "name": "AI SEO Course", 
+    "shortName": "AI SEO",
+    "priceINR": 10000,
+    "duration": "4 Weeks (Weekend Batches)",
+    "mode": "Offline - Classroom",
+    "overview": "Rank websites faster using AI for keyword research, topical authority, and technical optimization — includes a 10-hour in-house Shadow Internship with real client projects.",
+    "whoItsFor": [
+      "Content creators wanting to rank higher on Google",
+      "Digital marketers expanding into SEO",
+      "Business owners needing organic traffic growth",
+      "Web developers wanting to add SEO skills"
+    ],
+    "modules": [
+      {
+        "title": "SEO Fundamentals + AI Overviews",
+        "topics": ["How search engines work", "SEO vs SEM", "AI's impact on search", "E-A-T and YMYL"]
+      },
+      {
+        "title": "On-page, Off-page & Technical SEO",
+        "topics": ["Title tags and meta descriptions", "Header structure", "Link building strategies", "Site speed optimization"]
+      },
+      {
+        "title": "Local SEO for Business Growth",
+        "topics": ["Google My Business optimization", "Local citations", "Review management", "Local keyword targeting"]
+      },
+      {
+        "title": "AI Tools for SEO",
+        "topics": ["ChatGPT-5 for content creation", "Gemini for keyword research", "Bolt.AI for technical audits"]
+      },
+      {
+        "title": "Keyword Research & Clustering",
+        "topics": ["AI-powered keyword discovery", "Search intent analysis", "Keyword clustering strategies", "Content gap analysis"]
+      },
+      {
+        "title": "Schema Markup & Internal Linking",
+        "topics": ["Structured data implementation", "Rich snippets optimization", "Internal link architecture", "Topic clustering"]
+      },
+      {
+        "title": "Programmatic SEO Strategies", 
+        "topics": ["Automated content creation", "Large-scale optimization", "Dynamic page generation", "AI content workflows"]
+      },
+      {
+        "title": "SEO Audits & Reporting",
+        "topics": ["Technical SEO audits", "Content audits", "Competitor analysis", "Performance reporting"]
+      }
+    ],
+    "outcomes": [
+      "Conduct end-to-end SEO campaigns using AI workflows",
+      "Build SEO content plans with AI-assisted topical maps", 
+      "Audit, fix, and optimize websites for higher rankings",
+      "Gain hands-on SEO project experience through the Shadow Internship"
+    ],
+    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs"],
+    "upcomingBatches": [
+      {
+        "startDate": "2025-09-26",
+        "schedule": "Saturdays & Sundays, 10:00 AM - 4:00 PM", 
+        "seats": "4 students only"
+      },
+      {
+        "startDate": "2025-10-11",
+        "schedule": "Saturdays & Sundays, 10:00 AM - 4:00 PM",
+        "seats": "4 students only"
+      }
+    ]
+  },
+  {
+    "slug": "advanced-digital-marketing",
+    "name": "Advanced Digital Marketing Course",
+    "shortName": "Advanced Digital Marketing",
+    "priceINR": 25000,
+    "duration": "8 Weeks (Weekend Batches)",
+    "mode": "Offline - Classroom",
+    "overview": "Complete digital marketing mastery combining AI Performance Marketing and AI SEO in one comprehensive program. Master both paid advertising and organic growth strategies with advanced AI tools, live client projects, and extended shadow internship.",
+    "whoItsFor": [
+      "Marketing professionals wanting complete digital marketing expertise",
+      "Business owners needing both paid and organic marketing skills",
+      "Entrepreneurs looking to master all aspects of digital marketing",
+      "Career changers wanting comprehensive marketing knowledge"
+    ],
+    "modules": [
+      {
+        "title": "Digital Marketing Foundations",
+        "topics": ["Digital marketing ecosystem", "Consumer behavior analysis", "Marketing funnel optimization", "Brand positioning"]
+      },
+      {
+        "title": "Advanced Performance Marketing",
+        "topics": ["Meta Ads mastery", "Google Ads optimization", "Advanced targeting strategies", "Cross-platform campaign management"]
+      },
+      {
+        "title": "Comprehensive SEO Strategy",
+        "topics": ["Technical SEO implementation", "Content strategy", "Local SEO mastery", "International SEO"]
+      },
+      {
+        "title": "AI Tools Mastery",
+        "topics": ["ChatGPT-5 for marketing", "Gemini for strategy", "Bolt.AI for automation", "Heygen for video", "ElevenLabs for audio"]
+      },
+      {
+        "title": "Advanced Analytics & Tracking",
+        "topics": ["GA4 advanced implementation", "Custom tracking setup", "Attribution modeling", "ROI measurement"]
+      },
+      {
+        "title": "Marketing Automation",
+        "topics": ["Email marketing automation", "Lead nurturing", "CRM integration", "Marketing workflows"]
+      },
+      {
+        "title": "Advanced Campaign Optimization",
+        "topics": ["Multi-channel optimization", "Budget allocation", "Performance scaling", "Advanced reporting"]
+      },
+      {
+        "title": "Business & Leadership Skills",
+        "topics": ["Client management", "Team leadership", "Project management", "Business development"]
+      }
+    ],
+    "outcomes": [
+      "Master both paid advertising and organic marketing strategies",
+      "Implement comprehensive digital marketing campaigns across all channels",
+      "Lead marketing teams and manage complex client relationships",
+      "Build and scale complete digital marketing systems for businesses"
+    ],
+    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs"],
+    "upcomingBatches": [
+      {
+        "startDate": "2025-09-26",
+        "schedule": "Saturdays & Sundays, 10:00 AM - 6:00 PM",
+        "seats": "4 students only"
+      },
+      {
+        "startDate": "2025-10-11",
+        "schedule": "Saturdays & Sundays, 10:00 AM - 6:00 PM",
+        "seats": "4 students only"
+      }
+    ]
+  }
+]

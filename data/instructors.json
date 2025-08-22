@@ -1,0 +1,26 @@
+[
+  {
+    "id": "vinay-hankare",
+    "name": "Vinay Hankare",
+    "title": "Founder & Lead Instructor",
+    "image": "/vinay.jpg",
+    "bio": "Digital marketing strategist with 8+ years of experience scaling brands from startups to Fortune 500 companies. Specialized in AI-powered performance marketing and has trained 200+ successful marketers.",
+    "expertise": ["Performance Marketing", "AI Marketing Tools", "Google Ads", "Meta Ads", "Marketing Strategy"],
+    "brandsWorkedWith": ["Flipkart", "Zomato", "Paytm", "HDFC Bank", "Asian Paints"],
+    "certifications": ["Google Ads Certified", "Meta Blueprint Certified", "Google Analytics Certified"],
+    "linkedIn": "https://linkedin.com/in/vinayhankare",
+    "email": "vinay@adsmagnify.com"
+  },
+  {
+    "id": "partner-instructor",
+    "name": "Industry Expert Partner",
+    "title": "Guest Instructor & Mentor",
+    "image": "/aloke.JPG",
+    "bio": "Senior marketing professional from top agencies with 10+ years in performance marketing and SEO. Brings real-world case studies and industry insights to our classroom sessions.",
+    "expertise": ["SEO Strategy", "Content Marketing", "Agency Operations", "Client Management"],
+    "brandsWorkedWith": ["Ogilvy", "Publicis", "Dentsu", "GroupM"],
+    "certifications": ["Advanced SEO Certification", "Content Marketing Institute", "HubSpot Certified"],
+    "linkedIn": "",
+    "email": ""
+  }
+]

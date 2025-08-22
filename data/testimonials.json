@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1",
+    "name": "Priya Sharma",
+    "course": "AI Performance Marketing",
+    "image": "/t1.png",
+    "text": "The AI tools integration in this course is phenomenal. I'm now managing ₹50L+ ad spend monthly using the frameworks learned here. The shadow internship gave me real agency experience.",
+    "rating": 5,
+    "date": "2024-12-15"
+  },
+  {
+    "id": "2", 
+    "name": "Arjun Patel",
+    "course": "AI SEO",
+    "image": "/t3.png",
+    "text": "Vinay's teaching style is incredible. The AI SEO strategies helped me rank 15 keywords on page 1 within 3 months. Small batch size ensured personal attention.",
+    "rating": 5,
+    "date": "2024-11-28"
+  },
+  {
+    "id": "3",
+    "name": "Sneha Desai", 
+    "course": "AI Performance Marketing",
+    "image": "/t2.png",
+    "text": "From zero to hero in performance marketing! The live projects and AI tools training made me job-ready. Got promoted within 4 months of completing the course.",
+    "rating": 5,
+    "date": "2024-12-02"
+  },
+  {
+    "id": "4",
+    "name": "Rahul Joshi",
+    "course": "AI SEO", 
+    "image": "/t7.png",
+    "text": "As a startup founder, this AI SEO course saved me lakhs in agency fees. Now I rank my own websites and understand every aspect of organic growth.",
+    "rating": 5,
+    "date": "2024-11-15"
+  },
+  {
+    "id": "5",
+    "name": "Kavya Singh",
+    "course": "AI Performance Marketing",
+    "image": "/t5.png",
+    "text": "The life skills training component is what sets Adsmagnify apart. Not only did I learn AI marketing, but also how to present to clients and manage projects professionally.",
+    "rating": 5,
+    "date": "2024-12-10"
+  },
+  {
+    "id": "6",
+    "name": "Amit Verma",
+    "course": "AI SEO",
+    "image": "/t8.png",
+    "text": "The programmatic SEO section opened up new revenue streams for me. Now I'm handling enterprise clients and scaling websites with AI-driven content strategies.", 
+    "rating": 5,
+    "date": "2024-11-22"
+  },
+  {
+    "id": "7",
+    "name": "Neha Agarwal",
+    "course": "AI Performance Marketing",
+    "image": "/t10.png",
+    "text": "ROI on this course was incredible. Within 2 months, I optimized our ad spend by 40% and improved ROAS by 3x using the AI optimization techniques.",
+    "rating": 5,
+    "date": "2024-12-05"
+  },
+  {
+    "id": "8",
+    "name": "Vikram Malhotra", 
+    "course": "AI SEO",
+    "image": "/t12.png",
+    "text": "The local SEO module was game-changing for our restaurant partner acquisition. The shadow internship experience prepared me for complex SEO challenges at Zomato.",
+    "rating": 5, 
+    "date": "2024-11-18"
+  },
+  {
+    "id": "9",
+    "name": "Pooja Reddy",
+    "course": "AI Performance Marketing", 
+    "image": "/t4.png",
+    "text": "Hands down the best digital marketing course in Mumbai. The AI tools training and small batch size gave me individual attention and practical skills that directly apply to my role.",
+    "rating": 5,
+    "date": "2024-12-12"
+  }
+]

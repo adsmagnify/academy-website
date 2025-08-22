@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "south-bombay",
+    "name": "South Bombay",
+    "description": "Our main training center located in the heart of Mumbai's business district",
+    "landmarks": ["Churchgate Station", "Nariman Point", "Marine Drive", "Gateway of India"],
+    "transport": ["Churchgate Railway Station (2 mins walk)", "Multiple bus routes", "Taxi and cab services"],
+    "courses": ["ai-performance-marketing", "ai-seo"],
+    "testimonials": [
+      {
+        "student": "Priya Sharma",
+        "course": "AI Performance Marketing",
+        "text": "Perfect location in South Bombay. Easy commute from Andheri via Western Line."
+      }
+    ]
+  },
+  {
+    "slug": "churchgate", 
+    "name": "Churchgate",
+    "description": "Prime location near Churchgate station, accessible from all parts of Mumbai",
+    "landmarks": ["Churchgate Station", "Oval Maidan", "High Court", "University of Mumbai"],
+    "transport": ["Churchgate Station (walking distance)", "BEST bus connectivity", "Metro connectivity"],
+    "courses": ["ai-performance-marketing", "ai-seo"],
+    "testimonials": [
+      {
+        "student": "Arjun Patel",
+        "course": "AI SEO",
+        "text": "Churchgate location made it super convenient to attend weekend classes from Thane."
+      }
+    ]
+  },
+  {
+    "slug": "marine-lines",
+    "name": "Marine Lines", 
+    "description": "Strategic location with excellent connectivity and proximity to business centers",
+    "landmarks": ["Marine Lines Station", "Azad Maidan", "Mumbai University", "Cooperage Ground"],
+    "transport": ["Marine Lines Station (5 mins)", "Central and Western line connectivity", "Taxi stands"],
+    "courses": ["ai-performance-marketing", "ai-seo"],
+    "testimonials": [
+      {
+        "student": "Sneha Desai",
+        "course": "AI Performance Marketing", 
+        "text": "Marine Lines area is perfect for professionals working in South Mumbai."
+      }
+    ]
+  },
+  {
+    "slug": "colaba",
+    "name": "Colaba",
+    "description": "Easily accessible from our Churchgate center, serving students from Colaba area",
+    "landmarks": ["Gateway of India", "Taj Hotel", "Colaba Causeway", "Sassoon Docks"],
+    "transport": ["Churchgate Station (10 mins by taxi)", "BEST bus routes", "Local taxi services"],
+    "courses": ["ai-performance-marketing", "ai-seo"],
+    "testimonials": [
+      {
+        "student": "Rahul Joshi",
+        "course": "AI SEO",
+        "text": "From Colaba, it's just a short ride to the Churchgate center. Very convenient!"
+      }
+    ]
+  },
+  {
+    "slug": "nariman-point",
+    "name": "Nariman Point",
+    "description": "Mumbai's business district location, ideal for working professionals",
+    "landmarks": ["Nariman Point", "World Trade Centre", "Air India Building", "Mittal Towers"],
+    "transport": ["Churchgate Station (walking distance)", "Multiple corporate shuttles", "Taxi and cab services"],
+    "courses": ["ai-performance-marketing", "ai-seo"],
+    "testimonials": [
+      {
+        "student": "Kavya Singh",
+        "course": "AI Performance Marketing",
+        "text": "Perfect for working professionals in Nariman Point. Could easily attend after office hours."
+      }
+    ]
+  }
+]
