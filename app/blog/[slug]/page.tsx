@@ -21,8 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const post = blogData.find(p => p.slug === params.slug);
-  
+  const post = blogData.find((p) => p.slug === params.slug);
+
   if (!post) {
     return {
       title: "Post Not Found",
@@ -38,22 +38,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.excerpt,
       url: `https://adsmagnify.vercel.app/blog/${params.slug}`,
       images: [post.image],
-      type: 'article',
+      type: "article",
       publishedTime: post.publishedAt,
-      authors: [post.author]
+      authors: [post.author],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.image]
-    }
+      images: [post.image],
+    },
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostProps) {
-  const post = blogData.find(p => p.slug === params.slug);
-  
+export default function BlogPostPage({ params }: PageProps) {
+  const post = blogData.find((p) => p.slug === params.slug);
+
   if (!post) {
     notFound();
   }
@@ -63,8 +63,8 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     const headings = content.match(/^## .+$/gm) || [];
     return headings.map((heading, index) => ({
       id: `heading-${index}`,
-      title: heading.replace('## ', ''),
-      anchor: heading.replace('## ', '').toLowerCase().replace(/\s+/g, '-')
+      title: heading.replace("## ", ""),
+      anchor: heading.replace("## ", "").toLowerCase().replace(/\s+/g, "-"),
     }));
   };
 
@@ -73,21 +73,27 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   // Convert markdown-like content to HTML-like structure
   const formatContent = (content: string) => {
     return content
-      .split('\n\n')
+      .split("\n\n")
       .map((paragraph, index) => {
-        if (paragraph.startsWith('# ')) {
-          return `<h1 key="${index}" class="text-4xl font-bold text-navy-900 mb-6">${paragraph.replace('# ', '')}</h1>`;
-        } else if (paragraph.startsWith('## ')) {
-          const title = paragraph.replace('## ', '');
-          const anchor = title.toLowerCase().replace(/\s+/g, '-');
+        if (paragraph.startsWith("# ")) {
+          return `<h1 key="${index}" class="text-4xl font-bold text-navy-900 mb-6">${paragraph.replace(
+            "# ",
+            ""
+          )}</h1>`;
+        } else if (paragraph.startsWith("## ")) {
+          const title = paragraph.replace("## ", "");
+          const anchor = title.toLowerCase().replace(/\s+/g, "-");
           return `<h2 key="${index}" id="${anchor}" class="text-2xl font-bold text-navy-900 mb-4 mt-8">${title}</h2>`;
-        } else if (paragraph.startsWith('### ')) {
-          return `<h3 key="${index}" class="text-xl font-bold text-navy-900 mb-3 mt-6">${paragraph.replace('### ', '')}</h3>`;
+        } else if (paragraph.startsWith("### ")) {
+          return `<h3 key="${index}" class="text-xl font-bold text-navy-900 mb-3 mt-6">${paragraph.replace(
+            "### ",
+            ""
+          )}</h3>`;
         } else {
           return `<p key="${index}" class="text-gray-700 leading-relaxed mb-4">${paragraph}</p>`;
         }
       })
-      .join('');
+      .join("");
   };
 
   return (
@@ -96,17 +102,22 @@ export default function BlogPostPage({ params }: BlogPostProps) {
       <section className="bg-navy-900 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <Button asChild variant="outline" size="sm" className="mb-6 border-white text-adsmagnify-blue hover:bg-white hover:text-navy-900">
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="mb-6 border-white text-adsmagnify-blue hover:bg-white hover:text-navy-900"
+            >
               <Link href="/blog">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Blog
               </Link>
             </Button>
-            
+
             <h1 className="text-4xl text-adsmagnify-dark-yellow lg:text-5xl font-bold mb-6 leading-tight">
               {post.title}
             </h1>
-            
+
             <div className="flex items-center gap-6 text-gray-300">
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
@@ -114,11 +125,13 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
-                <span>{new Date(post.publishedAt).toLocaleDateString('en-IN', { 
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric'
-                })}</span>
+                <span>
+                  {new Date(post.publishedAt).toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
@@ -139,7 +152,9 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 <div className="sticky top-8">
                   <Card>
                     <CardContent className="p-6">
-                      <h3 className="font-bold text-navy-900 mb-4">Table of Contents</h3>
+                      <h3 className="font-bold text-navy-900 mb-4">
+                        Table of Contents
+                      </h3>
                       <nav className="space-y-2">
                         {tableOfContents.map((item, index) => (
                           <a
@@ -166,26 +181,35 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                       alt={post.title}
                       className="w-full h-64 object-cover rounded-lg mb-8"
                     />
-                    
+
                     {/* Article Content */}
-                    <div 
+                    <div
                       className="prose prose-lg max-w-none"
-                      dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
+                      dangerouslySetInnerHTML={{
+                        __html: formatContent(post.content),
+                      }}
                     />
-                    
+
                     {/* Share Section */}
                     <div className="border-t border-gray-200 pt-8 mt-8">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h4 className="font-bold text-navy-900 mb-2">Share this article</h4>
+                          <h4 className="font-bold text-navy-900 mb-2">
+                            Share this article
+                          </h4>
                           <div className="flex gap-2">
                             <CopyLinkButton size="sm" variant="outline" />
                           </div>
                         </div>
-                        
+
                         <div className="text-right">
-                          <p className="text-sm text-gray-600 mb-2">Want to learn more?</p>
-                          <Button asChild className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200">
+                          <p className="text-sm text-gray-600 mb-2">
+                            Want to learn more?
+                          </p>
+                          <Button
+                            asChild
+                            className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200"
+                          >
                             <Link href="/courses">View Our Courses</Link>
                           </Button>
                         </div>
@@ -212,13 +236,18 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                     className="w-20 h-20 rounded-full object-cover"
                   />
                   <div>
-                    <h3 className="text-xl font-bold text-navy-900 mb-2">{post.author}</h3>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">
+                      {post.author}
+                    </h3>
                     <p className="text-gray-600 mb-3">
-                      Founder & Lead Instructor at Adsmagnify Academy. Digital marketing strategist with 8+ years of experience 
-                      scaling brands from startups to Fortune 500 companies.
+                      Founder & Lead Instructor at Adsmagnify Academy. Digital
+                      marketing strategist with 8+ years of experience scaling
+                      brands from startups to Fortune 500 companies.
                     </p>
                     <Button asChild variant="outline" size="sm">
-                      <Link href="/contact">Connect with {post.author}</Link>
+                      <Link href="/contact">
+                        Connect with {post.author}
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -235,13 +264,16 @@ export default function BlogPostPage({ params }: BlogPostProps) {
             <h2 className="text-3xl font-bold text-navy-900 mb-8 text-center">
               Related Articles
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               {blogData
-                .filter(p => p.slug !== post.slug)
+                .filter((p) => p.slug !== post.slug)
                 .slice(0, 2)
                 .map((relatedPost) => (
-                  <Card key={relatedPost.slug} className="hover:shadow-lg transition-shadow">
+                  <Card
+                    key={relatedPost.slug}
+                    className="hover:shadow-lg transition-shadow"
+                  >
                     <div className="relative">
                       <img
                         src={relatedPost.image}
@@ -254,7 +286,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                         </Badge>
                       </div>
                     </div>
-                    
+
                     <CardContent className="p-6">
                       <h3 className="text-xl font-bold text-navy-900 mb-3 line-clamp-2">
                         {relatedPost.title}
@@ -262,8 +294,12 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                       <p className="text-gray-600 mb-4 text-sm line-clamp-3">
                         {relatedPost.excerpt}
                       </p>
-                      
-                      <Button asChild variant="outline" className="w-full hover:bg-adsmagnify-yellow hover:text-adsmagnify-blue hover:border-adsmagnify-yellow hover:scale-105 transform transition-all duration-200">
+
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full hover:bg-adsmagnify-yellow hover:text-adsmagnify-blue hover:border-adsmagnify-yellow hover:scale-105 transform transition-all duration-200"
+                      >
                         <Link href={`/blog/${relatedPost.slug}`}>
                           Read Article
                         </Link>
@@ -283,14 +319,24 @@ export default function BlogPostPage({ params }: BlogPostProps) {
             Ready to Master Digital Marketing?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Turn these insights into practical skills with our hands-on AI-powered digital marketing courses.
+            Turn these insights into practical skills with our hands-on
+            AI-powered digital marketing courses.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200">
+            <Button
+              asChild
+              size="lg"
+              className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200"
+            >
               <Link href="/contact">Book Demo Lecture</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-adsmagnify-blue hover:bg-adsmagnify-dark-yellow hover:text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-adsmagnify-blue hover:bg-adsmagnify-dark-yellow hover:text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200"
+            >
               <Link href="/courses">View All Courses</Link>
             </Button>
           </div>
@@ -304,32 +350,32 @@ export default function BlogPostPage({ params }: BlogPostProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            "headline": post.title,
-            "description": post.excerpt,
-            "image": post.image,
-            "author": {
+            headline: post.title,
+            description: post.excerpt,
+            image: post.image,
+            author: {
               "@type": "Person",
-              "name": post.author,
-              "image": post.authorImage
+              name: post.author,
+              image: post.authorImage,
             },
-            "publisher": {
+            publisher: {
               "@type": "Organization",
-              "name": "Adsmagnify Academy",
-              "logo": {
+              name: "Adsmagnify Academy",
+              logo: {
                 "@type": "ImageObject",
-                "url": "https://adsmagnify.vercel.app/images/logo.jpg"
-              }
+                url: "https://adsmagnify.vercel.app/images/logo.jpg",
+              },
             },
-            "datePublished": post.publishedAt,
-            "dateModified": post.publishedAt,
-            "mainEntityOfPage": {
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://adsmagnify.vercel.app/blog/${post.slug}`
+              "@id": `https://adsmagnify.vercel.app/blog/${post.slug}`,
             },
-            "articleSection": post.category,
-            "wordCount": post.content.split(' ').length,
-            "timeRequired": post.readTime
-          })
+            articleSection: post.category,
+            wordCount: post.content.split(" ").length,
+            timeRequired: post.readTime,
+          }),
         }}
       />
     </div>
