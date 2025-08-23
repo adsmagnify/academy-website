@@ -24,7 +24,7 @@ import coursesData from "@/data/courses.json";
 import instructorsData from "@/data/instructors.json";
 
 interface CoursePageProps {
-  params?: Promise<{
+  params: Promise<{
     slug: string;
   }>;
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -37,11 +37,6 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CoursePageProps): Promise<Metadata> {
-  if (!params) {
-    return {
-      title: "Course Not Found",
-    };
-  }
   const { slug } = await params;
   const course = coursesData.find(c => c.slug === slug);
   
@@ -64,9 +59,6 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
 }
 
 export default async function CoursePage({ params }: CoursePageProps) {
-  if (!params) {
-    notFound();
-  }
   const { slug } = await params;
   const course = coursesData.find(c => c.slug === slug);
   

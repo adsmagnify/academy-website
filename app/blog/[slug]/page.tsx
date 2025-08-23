@@ -12,7 +12,7 @@ import blogData from "@/data/blog.json";
 
 // Define the proper interface for params (Next.js 15 compatible)
 interface PageProps {
-  params?: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
@@ -25,12 +25,6 @@ export async function generateStaticParams() {
 
 // ✅ New: Proper SEO-friendly metadata generation
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  if (!params) {
-    return {
-      title: "Post Not Found | Adsmagnify Academy Blog",
-      description: "The blog post you are looking for does not exist.",
-    };
-  }
   const { slug } = await params;
   const post = blogData.find((p) => p.slug === slug);
 
@@ -65,9 +59,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 // ✅ Keep only ONE export default function
 export default async function BlogPostPage({ params }: PageProps) {
-  if (!params) {
-    notFound();
-  }
   const { slug } = await params;
   const post = blogData.find((p) => p.slug === slug);
 

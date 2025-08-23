@@ -1,182 +1,360 @@
 import { Metadata } from "next";
-import HeroSection from "@/components/common/hero-section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { notFound } from "next/navigation";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
+import CopyLinkButton from "@/components/common/copy-link-button";
 
 // Import blog data
 import blogData from "@/data/blog.json";
 
-export const metadata: Metadata = {
-  title: "Digital Marketing Blog | AI Marketing Tips & Strategies | Adsmagnify Academy",
-  description: "Stay updated with the latest AI-powered digital marketing trends, performance marketing strategies, and SEO tips from industry experts at Adsmagnify Academy.",
-  keywords: "digital marketing blog, AI marketing trends, performance marketing tips, SEO strategies, Mumbai digital marketing",
-  openGraph: {
-    title: "Digital Marketing Blog | AI Marketing Tips & Strategies | Adsmagnify Academy",
-    description: "Stay updated with the latest AI-powered digital marketing trends, performance marketing strategies, and SEO tips from industry experts.",
-    url: "https://adsmagnify.vercel.app/blog"
-  }
-};
+// Define the proper interface for params (Next.js 15 compatible)
+interface PageProps {
+  params?: Promise<{ slug: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
-export default function BlogPage() {
-  const featuredPost = blogData[0];
-  const otherPosts = blogData.slice(1);
+// Generate static params for all blog pages
+export async function generateStaticParams() {
+  return blogData.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+// ✅ New: Proper SEO-friendly metadata generation
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  if (!params) {
+    return {
+      title: "Post Not Found | Adsmagnify Academy Blog",
+      description: "The blog post you are looking for does not exist.",
+    };
+  }
+  const { slug } = await params;
+  const post = blogData.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found | Adsmagnify Academy Blog",
+      description: "The blog post you are looking for does not exist.",
+    };
+  }
+
+  return {
+    title: `${post.title} | Adsmagnify Academy Blog`,
+    description: post.excerpt,
+    keywords: `${post.category.toLowerCase()}, digital marketing, AI marketing, ${post.title.toLowerCase()}`,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `https://adsmagnify.vercel.app/blog/${slug}`,
+      images: [post.image],
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
+
+// ✅ Keep only ONE export default function
+export default async function BlogPostPage({ params }: PageProps) {
+  if (!params) {
+    notFound();
+  }
+  const { slug } = await params;
+  const post = blogData.find((p) => p.slug === slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  // Generate table of contents from content headings
+  const generateTOC = (content: string) => {
+    const headings = content.match(/^## .+$/gm) || [];
+    return headings.map((heading, index) => ({
+      id: `heading-${index}`,
+      title: heading.replace("## ", ""),
+      anchor: heading.replace("## ", "").toLowerCase().replace(/\s+/g, "-"),
+    }));
+  };
+
+  const tableOfContents = generateTOC(post.content);
+
+  // Convert markdown-like content to HTML-like structure
+  const formatContent = (content: string) => {
+    return content
+      .split("\n\n")
+      .map((paragraph, index) => {
+        if (paragraph.startsWith("# ")) {
+          return `<h1 key="${index}" class="text-4xl font-bold text-navy-900 mb-6">${paragraph.replace(
+            "# ",
+            ""
+          )}</h1>`;
+        } else if (paragraph.startsWith("## ")) {
+          const title = paragraph.replace("## ", "");
+          const anchor = title.toLowerCase().replace(/\s+/g, "-");
+          return `<h2 key="${index}" id="${anchor}" class="text-2xl font-bold text-navy-900 mb-4 mt-8">${title}</h2>`;
+        } else if (paragraph.startsWith("### ")) {
+          return `<h3 key="${index}" class="text-xl font-bold text-navy-900 mb-3 mt-6">${paragraph.replace(
+            "### ",
+            ""
+          )}</h3>`;
+        } else {
+          return `<p key="${index}" class="text-gray-700 leading-relaxed mb-4">${paragraph}</p>`;
+        }
+      })
+      .join("");
+  };
 
   return (
-    <div className="min-h-screen">
-      <HeroSection
-        title="Digital Marketing Insights & Strategies"
-        subtitle="Stay Ahead with AI-Powered Marketing Knowledge"
-        description="Discover the latest trends, strategies, and insights in AI-powered digital marketing, performance advertising, and SEO from our industry experts."
-        ctaText="Join Our Course"
-        ctaLink="/courses"
-      />
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-navy-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="mb-6 border-white text-adsmagnify-blue hover:bg-white hover:text-navy-900"
+            >
+              <Link href="/blog">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Blog
+              </Link>
+            </Button>
 
-      {/* Featured Post */}
+            <h1 className="text-4xl text-adsmagnify-dark-yellow lg:text-5xl font-bold mb-6 leading-tight">
+              {post.title}
+            </h1>
+
+            <div className="flex items-center gap-6 text-gray-300">
+              <div className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                <span>{post.author}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                <span>
+                  {new Date(post.publishedAt).toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                <span>{post.readTime}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Article Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 mb-4">
-              Featured Article
-            </h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="md:flex">
-                <div className="md:w-1/2">
-                  <img
-                    src={featuredPost.image}
-                    alt={featuredPost.title}
-                    className="w-full h-64 md:h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-1/2 p-8">
-                  <Badge className="bg-adsmagnify-light-yellow text-adsmagnify-blue mb-4">
-                    {featuredPost.category}
-                  </Badge>
-                  <h3 className="text-2xl font-bold text-navy-900 mb-4 leading-tight">
-                    {featuredPost.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {featuredPost.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center gap-4 mb-6 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <User className="h-4 w-4" />
-                      <span>{featuredPost.author}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      <span>{new Date(featuredPost.publishedAt).toLocaleDateString('en-IN', { 
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                      })}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      <span>{featuredPost.readTime}</span>
-                    </div>
-                  </div>
-                  
-                  <Button asChild className="bg-adsmagnify-dark-yellow hover:bg-adsmagnify-blue hover:text-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200">
-                    <Link href={`/blog/${featuredPost.slug}`}>
-                      Read Full Article
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
-                  </Button>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-4 gap-8">
+              {/* Table of Contents */}
+              <div className="lg:col-span-1">
+                <div className="sticky top-8">
+                  <Card>
+                    <CardContent className="p-6">
+                      <h3 className="font-bold text-navy-900 mb-4">
+                        Table of Contents
+                      </h3>
+                      <nav className="space-y-2">
+                        {tableOfContents.map((item, index) => (
+                          <a
+                            key={index}
+                            href={`#${item.anchor}`}
+                            className="block text-sm text-gray-600 hover:text-navy-900 transition-colors"
+                          >
+                            {item.title}
+                          </a>
+                        ))}
+                      </nav>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
+
+              {/* Main Content */}
+              <div className="lg:col-span-3">
+                <Card>
+                  <CardContent className="p-8">
+                    {/* Featured Image */}
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-64 object-cover rounded-lg mb-8"
+                    />
+
+                    {/* Article Content */}
+                    <div
+                      className="prose prose-lg max-w-none"
+                      dangerouslySetInnerHTML={{
+                        __html: formatContent(post.content),
+                      }}
+                    />
+
+                    {/* Share Section */}
+                    <div className="border-t border-gray-200 pt-8 mt-8">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h4 className="font-bold text-navy-900 mb-2">
+                            Share this article
+                          </h4>
+                          <div className="flex gap-2">
+                            <CopyLinkButton size="sm" variant="outline" />
+                          </div>
+                        </div>
+
+                        <div className="text-right">
+                          <p className="text-sm text-gray-600 mb-2">
+                            Want to learn more?
+                          </p>
+                          <Button
+                            asChild
+                            className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200"
+                          >
+                            <Link href="/courses">View Our Courses</Link>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Author Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-6">
+                  <img
+                    src={post.authorImage}
+                    alt={post.author}
+                    className="w-20 h-20 rounded-full object-cover"
+                  />
+                  <div>
+                    <h3 className="text-xl font-bold text-navy-900 mb-2">
+                      {post.author}
+                    </h3>
+                    <p className="text-gray-600 mb-3">
+                      Founder & Lead Instructor at Adsmagnify Academy. Digital
+                      marketing strategist with 8+ years of experience scaling
+                      brands from startups to Fortune 500 companies.
+                    </p>
+                    <Button asChild variant="outline" size="sm">
+                      <Link href="/contact">
+                        Connect with {post.author}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Other Posts */}
-      <section className="py-16 bg-gray-50">
+      {/* Related Articles */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-navy-900 mb-4">
-              Latest Articles
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-navy-900 mb-8 text-center">
+              Related Articles
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore more insights and strategies to enhance your digital marketing knowledge
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {otherPosts.map((post) => (
-              <Card key={post.slug} className="hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-adsmagnify-dark-yellow text-adsmagnify-blue">
-                      {post.category}
-                    </Badge>
-                  </div>
-                </div>
-                
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-navy-900 mb-3 leading-tight line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center gap-4 mb-4 text-xs text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <User className="h-3 w-3" />
-                      <span>{post.author}</span>
+            <div className="grid md:grid-cols-2 gap-8">
+              {blogData
+                .filter((p) => p.slug !== post.slug)
+                .slice(0, 2)
+                .map((relatedPost) => (
+                  <Card
+                    key={relatedPost.slug}
+                    className="hover:shadow-lg transition-shadow"
+                  >
+                    <div className="relative">
+                      <img
+                        src={relatedPost.image}
+                        alt={relatedPost.title}
+                        className="w-full h-48 object-cover rounded-t-lg"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <Badge className="bg-adsmagnify-yellow text-adsmagnify-blue">
+                          {relatedPost.category}
+                        </Badge>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
-                      <span>{new Date(post.publishedAt).toLocaleDateString('en-IN', { 
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                      })}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                  
-                  <Button asChild variant="outline" className="w-full bg-white text-adsmagnify-blue hover:bg-adsmagnify-dark-yellow hover:text-adsmagnify-blue hover:border-adsmagnify-dark-yellow hover:scale-105 transform transition-all duration-200">
-                    <Link href={`/blog/${post.slug}`}>
-                      Read More
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold text-navy-900 mb-3 line-clamp-2">
+                        {relatedPost.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 text-sm line-clamp-3">
+                        {relatedPost.excerpt}
+                      </p>
+
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full hover:bg-adsmagnify-yellow hover:text-adsmagnify-blue hover:border-adsmagnify-yellow hover:scale-105 transform transition-all duration-200"
+                      >
+                        <Link href={`/blog/${relatedPost.slug}`}>
+                          Read Article
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* CTA Section */}
       <section className="py-16 bg-navy-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Stay Updated with Latest Insights
+          <h2 className="text-3xl text-adsmagnify-dark-yellow lg:text-4xl font-bold mb-4">
+            Ready to Master Digital Marketing?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Get the latest digital marketing trends, AI tools updates, and course announcements delivered to your inbox.
+            Turn these insights into practical skills with our hands-on
+            AI-powered digital marketing courses.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <Button asChild size="lg" className="bg-adsmagnify-dark-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200">
-              <Link href="/contact">Subscribe to Updates</Link>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200"
+            >
+              <Link href="/contact">Book Demo Lecture</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-adsmagnify-blue hover:bg-adsmagnify-dark-yellow hover:text-adsmagnify-blue font-semibold hover:scale-105 transform transition-all duration-200"
+            >
+              <Link href="/courses">View All Courses</Link>
             </Button>
           </div>
         </div>
@@ -188,31 +366,33 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Blog",
-            "name": "Adsmagnify Academy Blog",
-            "description": "Digital marketing insights, AI-powered strategies, and industry trends",
-            "url": "https://adsmagnify.vercel.app/blog",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Adsmagnify Academy",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://adsmagnify.vercel.app/images/logo.jpg"
-              }
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            image: post.image,
+            author: {
+              "@type": "Person",
+              name: post.author,
+              image: post.authorImage,
             },
-            "blogPost": blogData.map(post => ({
-              "@type": "BlogPosting",
-              "headline": post.title,
-              "description": post.excerpt,
-              "image": post.image,
-              "author": {
-                "@type": "Person",
-                "name": post.author
+            publisher: {
+              "@type": "Organization",
+              name: "Adsmagnify Academy",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://adsmagnify.vercel.app/images/logo.jpg",
               },
-              "datePublished": post.publishedAt,
-              "url": `https://adsmagnify.vercel.app/blog/${post.slug}`
-            }))
-          })
+            },
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://adsmagnify.vercel.app/blog/${post.slug}`,
+            },
+            articleSection: post.category,
+            wordCount: post.content.split(" ").length,
+            timeRequired: post.readTime,
+          }),
         }}
       />
     </div>
