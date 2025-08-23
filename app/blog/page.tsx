@@ -10,10 +10,10 @@ import CopyLinkButton from "@/components/common/copy-link-button";
 // Import blog data
 import blogData from "@/data/blog.json";
 
-// Define the proper interface for params (Next.js 15 compatible)
+// ✅ Correct interface (no Promise)
 interface PageProps {
-  params?: Promise<{ slug: string }>;
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // Generate static params for all blog pages
@@ -23,15 +23,9 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ New: Proper SEO-friendly metadata generation
+// ✅ Proper SEO metadata
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  if (!params) {
-    return {
-      title: "Post Not Found | Adsmagnify Academy Blog",
-      description: "The blog post you are looking for does not exist.",
-    };
-  }
-  const { slug } = await params;
+  const { slug } = params;
   const post = blogData.find((p) => p.slug === slug);
 
   if (!post) {
@@ -63,19 +57,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-// ✅ Keep only ONE export default function
+// ✅ Single page component
 export default async function BlogPostPage({ params }: PageProps) {
-  if (!params) {
-    notFound();
-  }
-  const { slug } = await params;
+  const { slug } = params;
   const post = blogData.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
-  // Generate table of contents from content headings
+  // Generate table of contents
   const generateTOC = (content: string) => {
     const headings = content.match(/^## .+$/gm) || [];
     return headings.map((heading, index) => ({
@@ -87,7 +78,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const tableOfContents = generateTOC(post.content);
 
-  // Convert markdown-like content to HTML-like structure
+  // Convert markdown-like content to HTML
   const formatContent = (content: string) => {
     return content
       .split("\n\n")
@@ -164,7 +155,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-4 gap-8">
-              {/* Table of Contents */}
+              {/* TOC */}
               <div className="lg:col-span-1">
                 <div className="sticky top-8">
                   <Card>
@@ -192,14 +183,12 @@ export default async function BlogPostPage({ params }: PageProps) {
               <div className="lg:col-span-3">
                 <Card>
                   <CardContent className="p-8">
-                    {/* Featured Image */}
                     <img
                       src={post.image}
                       alt={post.title}
                       className="w-full h-64 object-cover rounded-lg mb-8"
                     />
 
-                    {/* Article Content */}
                     <div
                       className="prose prose-lg max-w-none"
                       dangerouslySetInnerHTML={{
@@ -262,9 +251,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                       brands from startups to Fortune 500 companies.
                     </p>
                     <Button asChild variant="outline" size="sm">
-                      <Link href="/contact">
-                        Connect with {post.author}
-                      </Link>
+                      <Link href="/contact">Connect with {post.author}</Link>
                     </Button>
                   </div>
                 </div>
