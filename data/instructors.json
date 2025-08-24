@@ -2,7 +2,7 @@
   {
     "id": "vinay-hankare",
     "name": "Vinay Hankare",
-    "title": "Founder & Lead Instructor",
+    "title": "Managing Partner and Lead Instructor",
     "image": "/vinay.jpg",
     "bio": "Digital marketing strategist with 8+ years of experience scaling brands from startups to Fortune 500 companies. Specialized in AI-powered performance marketing and has trained 200+ successful marketers.",
     "expertise": ["Performance Marketing", "AI Marketing Tools", "Google Ads", "Meta Ads", "Marketing Strategy"],
@@ -13,8 +13,8 @@
   },
   {
     "id": "partner-instructor",
-    "name": "Industry Expert Partner",
-    "title": "Guest Instructor & Mentor",
+    "name": "Aloke Bajpai",
+    "title": "Partner and Instructor",
     "image": "/aloke.JPG",
     "bio": "Senior marketing professional from top agencies with 10+ years in performance marketing and SEO. Brings real-world case studies and industry insights to our classroom sessions.",
     "expertise": ["SEO Strategy", "Content Marketing", "Agency Operations", "Client Management"],
