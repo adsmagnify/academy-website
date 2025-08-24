@@ -221,7 +221,7 @@ export default function Home() {
               <div className="text-visible-blue font-bold text-lg font-satoshi">Students Trained</div>
             </div>
             <div className="animate-fade-in-up stagger-4">
-              <div className="text-5xl font-bold text-visible-blue mb-3 font-unbounded">95%</div>
+              <div className="text-5xl font-bold text-visible-blue mb-3 font-unbounded">85%</div>
               <div className="text-visible-blue font-bold text-lg font-satoshi">Placement Rate</div>
             </div>
             <div className="animate-fade-in-up stagger-5">
