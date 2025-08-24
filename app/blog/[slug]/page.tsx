@@ -23,7 +23,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ New: Proper SEO-friendly metadata generation
+// ✅ Proper SEO-friendly metadata generation
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = blogData.find((p) => p.slug === slug);
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-// ✅ Keep only ONE export default function
+// ✅ Main component
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = blogData.find((p) => p.slug === slug);
