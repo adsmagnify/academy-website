@@ -40,7 +40,7 @@ export default function BlogPage() {
   );
 
   // Get unique categories for filtering
-  const categories = [...new Set(blogData.map(post => post.category))];
+  const categories = Array.from(new Set(blogData.map(post => post.category)));
 
   return (
     <div className="min-h-screen bg-gray-50">
