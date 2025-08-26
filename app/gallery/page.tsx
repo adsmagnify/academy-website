@@ -38,28 +38,28 @@ export default function GalleryPage() {
       category: "Live Projects",
       title: "Real Campaign Management",
       description: "Students working on live client campaigns with real budgets",
-      image: "lp1.png",
+      image: "/lp1.png",
       icon: <BookOpen className="h-5 w-5" />
     },
     {
       category: "Classroom",
       title: "Interactive Learning Environment",
       description: "Collaborative learning space designed for maximum engagement",
-      image: "c2.png",
+      image: "/c2.png",
       icon: <Laptop className="h-5 w-5" />
     },
     {
       category: "Students",
       title: "Graduation Day",
       description: "Celebrating successful completion of AI Performance Marketing course",
-      image: "s2.png",
+      image: "/s2.png",
       icon: <Award className="h-5 w-5" />
     },
     {
       category: "Live Projects",
       title: "Campaign Strategy Session",
       description: "Students presenting their campaign strategies to real clients",
-      image: "lp2.png",
+      image: "/lp2.png",
       icon: <BookOpen className="h-5 w-5" />
     }
   ];
