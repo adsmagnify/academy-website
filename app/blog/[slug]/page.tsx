@@ -248,13 +248,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                       {post.author}
                     </h3>
                     <p className="text-gray-600 mb-3">
-                      Founder & Lead Instructor at Adsmagnify Academy. Digital
-                      marketing strategist with 8+ years of experience scaling
-                      brands from startups to Fortune 500 companies.
+                     Written and curated content by Adsmagnify Team.
                     </p>
                     <Button asChild variant="outline" size="sm">
-                      <Link href="/contact">
-                        Connect with {post.author}
+                      <Link href="https://in.linkedin.com/company/adsmagnify">
+                        Connect with Adsmagnify Team
                       </Link>
                     </Button>
                   </div>

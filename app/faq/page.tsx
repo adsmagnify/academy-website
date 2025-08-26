@@ -45,7 +45,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "What are the course fees?",
-          answer: "AI Performance Marketing Course: ₹15,000 (6 weeks), AI SEO Course: ₹10,000 (4 weeks), Advanced Digital Marketing Course: ₹25,000 (8 weeks). All courses include live projects, shadow internship, and AI tools training."
+          answer: "AI Performance Marketing Course: ₹15,000 (8 weeks), AI SEO Course: ₹10,000 (4 weeks), Advanced Digital Marketing Course: ₹25,000 (12 weeks). All courses include live projects, shadow internship, and AI tools training."
         },
         {
           question: "Can I pay in installments?",

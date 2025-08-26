@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Star, Quote } from "lucide-react";
+import CountUp from "@/components/common/count-up";
 
 // Import testimonials data
 import testimonialsData from "@/data/testimonials.json";
@@ -36,19 +37,19 @@ export default function TestimonialsPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center max-w-4xl mx-auto">
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">200+</div>
+              <CountUp value={15} suffix="+" className="text-4xl font-bold text-primary mb-2" />
               <div className="text-gray-600 font-medium">Students Trained</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">95%</div>
+              <CountUp value={85} suffix="%" className="text-4xl font-bold text-primary mb-2" />
               <div className="text-gray-600 font-medium">Placement Rate</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">₹50L+</div>
+              <span className="text-4xl font-bold text-primary mb-2">₹<CountUp value={50} suffix="cr+" /></span>
               <div className="text-gray-600 font-medium">Avg. Ad Spend Managed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary mb-2">4.9★</div>
+              <span className="text-4xl font-bold text-primary mb-2"><CountUp value={4} />★</span>
               <div className="text-gray-600 font-medium">Student Rating</div>
             </div>
           </div>

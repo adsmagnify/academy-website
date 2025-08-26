@@ -66,7 +66,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
     notFound();
   }
 
-  const mainInstructor = instructorsData[0]; // Vinay Hankare
+  const [mainInstructor, partnerInstructor] = instructorsData; // Read both instructors from data
 
   return (
     <div className="min-h-screen">
@@ -123,6 +123,10 @@ export default async function CoursePage({ params }: CoursePageProps) {
                       <div className="flex items-center gap-2 text-sm">
                         <CheckCircle className="h-4 w-4 text-green-500" />
                         <span>AI Tools Training</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <span>Lifetime Mentorship</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <CheckCircle className="h-4 w-4 text-green-500" />
@@ -229,9 +233,9 @@ export default async function CoursePage({ params }: CoursePageProps) {
                 const logoSrcByTool: Record<string, string> = {
                   "chatgpt": "/chatgpt5.png",
                   "chatgpt-5": "/chatgpt5.png",
-                  "gemini": "/gemini.jpeg",
+                  "gemini": "/gemini.png",
                   "bolt.ai": "/bolt.jpg",
-                  "boltai": "/bolt.jpg",
+                  "boltai": "/bolt.png",
                   "heygen": "/heygen.webp",
                   "elevenlabs": "/elevenlabs.png",
                 };
@@ -320,31 +324,28 @@ export default async function CoursePage({ params }: CoursePageProps) {
               <Card className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center">
                   <img
-                    src="/aloke.JPG"
-                    alt="Industry Expert Partner"
+                    src={partnerInstructor.image}
+                    alt={partnerInstructor.name}
                     className="w-32 h-32 rounded-full object-cover mx-auto mb-4"
                   />
-                  <h3 className="text-xl font-bold text-navy-900 mb-2">Industry Expert Partner</h3>
-                  <p className="text-adsmagnify-yellow font-medium mb-3">Guest Instructor & Mentor</p>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                    Senior marketing professional from top agencies with 10+ years in performance marketing and SEO. 
-                    Brings real-world case studies and industry insights.
-                  </p>
-                  
+                  <h3 className="text-xl font-bold text-navy-900 mb-2">{partnerInstructor.name}</h3>
+                  <p className="text-adsmagnify-yellow font-medium mb-3">{partnerInstructor.title}</p>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{partnerInstructor.bio}</p>
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-navy-900 mb-2">Expertise:</h4>
                     <div className="flex flex-wrap gap-1 justify-center">
-                      {["SEO Strategy", "Content Marketing", "Agency Operations", "Client Management"].map((skill) => (
+                      {partnerInstructor.expertise.slice(0, 4).map((skill: string) => (
                         <Badge key={skill} variant="outline" className="text-xs">
                           {skill}
                         </Badge>
                       ))}
                     </div>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-semibold text-navy-900 mb-2">Brands Worked With:</h4>
-                    <p className="text-gray-600 text-sm">Ogilvy, Publicis, Dentsu</p>
+                    <p className="text-gray-600 text-sm">{partnerInstructor.brandsWorkedWith.slice(0, 3).join(', ')}</p>
                   </div>
                 </CardContent>
               </Card>

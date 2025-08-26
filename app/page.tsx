@@ -20,6 +20,7 @@ import {
   Rocket,
   Shield
 } from "lucide-react";
+import CountUp from "@/components/common/count-up";
 
 // Import course data
 import coursesData from "@/data/courses.json";
@@ -35,7 +36,7 @@ export default function Home() {
         title="AI-Powered Digital Marketing Courses in Mumbai"
         subtitle="Master Performance Marketing & SEO with Live Projects + Shadow Internships"
         description="Join Mumbai's most exclusive digital marketing academy with only 4 students per batch. Learn from industry experts, work on real client projects, and get job-ready in 4-6 weeks."
-        badge="🎯 New Batch Starting Feb 15th - Limited Seats!"
+        badge="🎯 New Batch Starting from September 20th - 4 Seats only!"
       />
 
       {/* USP Section */}
@@ -49,8 +50,7 @@ export default function Home() {
               Why Choose Adsmagnify Academy?
             </h2>
             <p className="text-xl text-visible-dark max-w-3xl mx-auto animate-fade-in-up stagger-2 font-satoshi">
-              Mumbai's first AI-powered digital marketing academy with personalized attention and guaranteed practical experience
-            </p>
+            At AdsMagnify, we don’t teach theory—we teach reality. Learn in Mumbai from real experts, practice on live accounts, and master the future of marketing with AI-powered tools.            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
@@ -82,8 +82,8 @@ export default function Home() {
               <div className="bg-blue-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 hover-lift group-hover:animate-pulse-glow">
                 <TrendingUp className="h-10 w-10 text-visible-blue" />
               </div>
-              <h3 className="font-bold text-visible-dark mb-3 text-lg font-unbounded">EMI Payment Options</h3>
-              <p className="text-visible-dark text-sm leading-relaxed font-satoshi">₹2000 registration + flexible monthly payments</p>
+              <h3 className="font-bold text-visible-dark mb-3 text-lg font-unbounded">Lifetime Support</h3>
+              <p className="text-visible-dark text-sm leading-relaxed font-satoshi">Lifetime mentorship to guide you even after the course ends</p>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-visible-dark mb-6 animate-fade-in-up font-unbounded">
-              Our Featured Courses
+              Our Courses
             </h2>
             <p className="text-xl text-visible-dark max-w-3xl mx-auto animate-fade-in-up stagger-2 font-satoshi">
               Master AI-powered digital marketing with hands-on training and industry-recognized certifications
@@ -122,25 +122,28 @@ export default function Home() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <Brain className="h-8 w-8 text-visible-yellow" />
               <h2 className="text-3xl lg:text-4xl font-bold text-visible-white-on-dark animate-fade-in-up font-unbounded">
-                Master Cutting-Edge AI Tools
+                Master Cutting-Edge Tools
               </h2>
             </div>
             <p className="text-xl text-visible-white-on-dark max-w-3xl mx-auto animate-fade-in-up stagger-2 font-satoshi">
-              Learn the latest AI tools that are transforming digital marketing and give you a competitive edge
+            Become future ready AI Digital Marketer
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 text-center object-contain">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center object-contain">
             {[
+              { name: "Perplexity", purpose: "AI Research & Search Assistant", logo: "/perplexity.png" },
               { name: "ChatGPT", purpose: "Ad Copy & Strategy", logo: "/chatgpt5.png" },
-              { name: "Gemini", purpose: "Content Creation", logo: "/gemini.jpeg" },
-              { name: "Bolt.AI", purpose: "Automation", logo: "/bolt.jpg" },
+              { name: "Hera AI", purpose: "AI Motion Graphics & Animation", logo: "/hera_ai.png" },
+              { name: "Gemini", purpose: "Content Creation", logo: "/gemini.png" },
+              { name: "Veo3", purpose: "AI Text-to-Video Generation", logo: "/veo3.jpg" },
+              { name: "Bolt.AI", purpose: "Automation", logo: "/bolt.png" },
               { name: "Heygen", purpose: "AI Video Creation", logo: "/heygen.webp" },
               { name: "ElevenLabs", purpose: "AI Voiceovers", logo: "/elevenlabs.png" }
             ].map((tool, index) => (
               <div key={tool.name} className={`bg-white-contrast p-8 rounded-2xl hover-lift animate-fade-in-up stagger-${index + 3}`}>
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-white shadow-sm animate-float">
-                  <Image src={tool.logo} alt={`${tool.name} logo`} width={48} height={48} className="w-12 h-12 object-contain" />
+                  <Image src={tool.logo} alt={`${tool.name} logo`} width={60} height={60} className="w-12 h-12 object-contain" />
                 </div>
                 <h3 className="font-bold text-lg mb-3 text-visible-dark font-unbounded">{tool.name}</h3>
                 <p className="text-visible-dark text-sm font-satoshi">{tool.purpose}</p>
@@ -196,10 +199,10 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-visible-dark mb-3 font-unbounded">Aloke Bajpai</h3>
                 <p className="text-visible-yellow font-bold mb-4 text-lg font-satoshi">Partner & Instructor</p>
                 <p className="text-visible-dark text-sm mb-6 leading-relaxed font-satoshi">
-                30+ years in Business & Travel with expertise in global operations. Worked across diverse markets and built innovative strategies.
+                30+ years in Business & Travel with 2 decades of teaching experience. Worked across diverse markets and built innovative strategies.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {["Business Strategy", "Consumer Psychology", "Life Skills"].map((skill) => (
+                  {["Business Strategy", "Consumer Psychology", "Life Skills","Communications"].map((skill) => (
                     <Badge key={skill} variant="outline" className="text-xs border-adsmagnify-blue text-visible-blue hover:bg-adsmagnify-dark-yellow hover:text-white transition-colors font-satoshi">
                       {skill}
                     </Badge>
@@ -211,30 +214,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Success Stats */}
-      <section className="py-20 bg-gradient-to-br from-adsmagnify-dark-yellow to-adsmagnify-dark-yellow relative overflow-hidden">
-        <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center relative z-10">
-            <div className="animate-fade-in-up stagger-3">
-              <div className="text-5xl font-bold text-visible-blue mb-3 font-unbounded">200+</div>
-              <div className="text-visible-blue font-bold text-lg font-satoshi">Students Trained</div>
-            </div>
-            <div className="animate-fade-in-up stagger-4">
-              <div className="text-5xl font-bold text-visible-blue mb-3 font-unbounded">85%</div>
-              <div className="text-visible-blue font-bold text-lg font-satoshi">Placement Rate</div>
-            </div>
-            <div className="animate-fade-in-up stagger-5">
-              <div className="text-5xl font-bold text-visible-blue mb-3 font-unbounded">₹50L+</div>
-              <div className="text-visible-blue font-bold text-lg font-satoshi">Avg. Ad Spend Managed</div>
-            </div>
-            <div className="animate-fade-in-up stagger-6">
-              <div className="text-5xl font-bold text-visible-blue mb-3 font-unbounded">4.9★</div>
-              <div className="text-visible-blue font-bold text-lg font-satoshi">Student Rating</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">

@@ -41,7 +41,7 @@ export default function CoursesPage() {
           <div className="max-w-4xl mx-auto text-center">
             
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-adsmagnify-yellow">
-              Digital Marketing Courses
+              Digital Marketing AI Courses
             </h1>
             <p className="text-xl lg:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Master AI-driven marketing with live client projects, shadow internships, and guaranteed job placement support in Mumbai's premier training academy.
@@ -263,7 +263,7 @@ export default function CoursesPage() {
               What's Included in Every Course
             </h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
               {[
                 {
                   title: "Live Client Projects",
@@ -279,6 +279,11 @@ export default function CoursesPage() {
                   title: "AI Tools Training",
                   description: "Master ChatGPT-5, Gemini, Bolt.AI & more",
                   icon: Brain
+                },
+                {
+                  title: "Lifetime Mentorship",
+                  description: "Consistent support even after course completion",
+                  icon: Target
                 },
                 {
                   title: "Job Placement Support",

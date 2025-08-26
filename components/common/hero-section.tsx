@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import CountUp from "@/components/common/count-up";
 import Link from "next/link";
 
 interface HeroSectionProps {
@@ -81,19 +82,23 @@ const HeroSection = ({
           {/* Floating elements */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="bg-white-contrast p-6 rounded-xl animate-fade-in-up stagger-5 hover-lift">
-              <div className="text-3xl font-bold text-visible-blue mb-2 font-unbounded">200+</div>
+              <CountUp value={15} suffix="+" className="text-3xl font-bold text-visible-blue mb-2 font-unbounded" />
               <div className="text-sm text-visible-dark font-satoshi">Students Trained</div>
             </div>
             <div className="bg-white-contrast p-6 rounded-xl animate-fade-in-up stagger-6 hover-lift">
-              <div className="text-3xl font-bold text-visible-blue mb-2 font-unbounded">95%</div>
+              <CountUp value={85} suffix="%" className="text-3xl font-bold text-visible-blue mb-2 font-unbounded" />
               <div className="text-sm text-visible-dark font-satoshi">Placement Rate</div>
             </div>
             <div className="bg-white-contrast p-6 rounded-xl animate-fade-in-up stagger-5 hover-lift">
-              <div className="text-3xl font-bold text-visible-blue mb-2 font-unbounded">₹50L+</div>
+              <span className="text-3xl font-bold text-visible-blue mb-2 font-unbounded">
+                ₹<CountUp value={50} suffix="cr+" />
+              </span>
               <div className="text-sm text-visible-dark font-satoshi">Avg. Ad Spend</div>
             </div>
             <div className="bg-white-contrast p-6 rounded-xl animate-fade-in-up stagger-6 hover-lift">
-              <div className="text-3xl font-bold text-visible-blue mb-2 font-unbounded">4.9★</div>
+              <span className="text-3xl font-bold text-visible-blue mb-2 font-unbounded">
+                <CountUp value={4} />★
+              </span>
               <div className="text-sm text-visible-dark font-satoshi">Student Rating</div>
             </div>
           </div>

@@ -165,7 +165,6 @@ export default function ContactPage() {
                               {course.shortName}
                             </SelectItem>
                           ))}
-                          <SelectItem value="both">Both Courses</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -176,11 +175,10 @@ export default function ContactPage() {
                           <SelectValue placeholder="Select preferred time" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="weekday-morning">Weekday Morning (9 AM - 12 PM)</SelectItem>
-                          <SelectItem value="weekday-afternoon">Weekday Afternoon (2 PM - 5 PM)</SelectItem>
-                          <SelectItem value="weekday-evening">Weekday Evening (6 PM - 8 PM)</SelectItem>
-                          <SelectItem value="weekend-morning">Weekend Morning (10 AM - 1 PM)</SelectItem>
-                          <SelectItem value="weekend-afternoon">Weekend Afternoon (2 PM - 5 PM)</SelectItem>
+                          <SelectItem value="weekday-morning">Saturday (1 PM - 4 PM)</SelectItem>
+                          <SelectItem value="weekday-afternoon">Saturday (5 PM - 7 PM)</SelectItem>
+                          <SelectItem value="weekday-evening">Sunday (1 PM - 4 PM)</SelectItem>
+                          <SelectItem value="weekend-morning">Sunday (5 PM - 7 PM)</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -308,8 +306,6 @@ export default function ContactPage() {
                 </Button>
               </CardContent>
             </Card>
-
-                    <span className="text-adsmagnify-blue">Call +91 7700090236</span>
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg text-navy-900">Find Us</CardTitle>

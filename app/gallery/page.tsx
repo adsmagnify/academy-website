@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import GalleryGrid from "@/components/common/gallery-grid";
 import Link from "next/link";
 import { Camera, Users, Laptop, Award, BookOpen, Coffee } from "lucide-react";
+import CountUp from "@/components/common/count-up";
 
 export const metadata: Metadata = {
   title: "Gallery - Classroom Photos & Student Activities | Adsmagnify Academy",
@@ -80,19 +81,19 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center max-w-4xl mx-auto">
             <div>
-              <div className="text-4xl font-bold text-navy-900 mb-2">4</div>
+              <CountUp value={4} className="text-4xl font-bold text-navy-900 mb-2" />
               <div className="text-gray-600 font-medium">Students Per Batch</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-navy-900 mb-2">1</div>
+              <CountUp value={1} className="text-4xl font-bold text-navy-900 mb-2" />
               <div className="text-gray-600 font-medium">Modern Classroom</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-navy-900 mb-2">10+</div>
+              <CountUp value={10} suffix="+" className="text-4xl font-bold text-navy-900 mb-2" />
               <div className="text-gray-600 font-medium">Live Projects Monthly</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-navy-900 mb-2">100%</div>
+              <CountUp value={100} suffix="%" className="text-4xl font-bold text-navy-900 mb-2" />
               <div className="text-gray-600 font-medium">Hands-on Learning</div>
             </div>
           </div>
