@@ -206,7 +206,7 @@ export default function TestimonialsPage() {
       {/* CTA Section */}
       <section className="py-16 bg-adsmagnify-blue text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl text-adsmagnify-yellow font-bold mb-4">
             Ready to Write Your Success Story?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
