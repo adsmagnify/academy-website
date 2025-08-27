@@ -92,9 +92,9 @@ const CourseCard = ({
               const logoSrcByTool: Record<string, string> = {
                 "chatgpt": "/chatgpt5.png",
                 "chatgpt-5": "/chatgpt5.png",
-                "gemini": "/gemini.jpeg",
-                "bolt.ai": "/bolt.jpg",
-                "boltai": "/bolt.jpg",
+                "gemini": "/gemini.png",
+                "bolt.ai": "/bolt.png",
+                "boltai": "/bolt.png",
                 "heygen": "/heygen.webp",
                 "elevenlabs": "/elevenlabs.png",
               };
