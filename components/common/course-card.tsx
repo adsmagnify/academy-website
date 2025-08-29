@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, MapPin, IndianRupee, Star, Zap } from "lucide-react";
+import { Clock, Users, MapPin, IndianRupee, Star, Zap, Target } from "lucide-react";
 
 interface CourseCardProps {
   slug: string;
@@ -25,6 +25,64 @@ const CourseCard = ({
   overview,
   aiTools
 }: CourseCardProps) => {
+  // Define marketing tools based on course slug
+  const getMarketingToolsBySlug = (courseSlug: string): string[] => {
+    switch (courseSlug) {
+      case "advanced-digital-marketing":
+        return [
+          "Meta Ads",
+          "Google Ads", 
+          "LinkedIn Ads",
+          "Pinterest",
+          "Google Search Console",
+          "Google My Business",
+          "Google Analytics",
+          "SEMrush"
+        ];
+      case "ai-performance-marketing":
+        return [
+          "Meta Ads",
+          "Google Ads",
+          "LinkedIn Ads",
+          "Pinterest"
+        ];
+      case "ai-seo":
+        return [
+          "Google Search Console",
+          "Google My Business", 
+          "Google Analytics",
+          "SEMrush"
+        ];
+      default:
+        return [
+          "Meta Ads",
+          "Google Ads", 
+          "LinkedIn Ads",
+          "Pinterest",
+          "Google Analytics",
+          "SEMrush"
+        ];
+    }
+  };
+
+  // Get marketing tool logos
+  const getMarketingToolLogo = (tool: string): string => {
+    const logoMap: Record<string, string> = {
+      "meta ads": "/meta.png",
+      "google ads": "/google.png",
+      "linkedin ads": "/linkedin.png",
+      "pinterest": "/pinterest.png",
+      "google search console": "/google_search_console.png",
+      "google my business": "/google_my_business.png",
+      "google analytics": "/google_analytics.png",
+      "semrush": "/semrush.png"
+    };
+    
+    return logoMap[tool.toLowerCase()] || "/logo.png";
+  };
+
+  const marketingTools = getMarketingToolsBySlug(slug);
+
   return (
     <Card className="h-full hover-lift bg-white-contrast border-gray-200 hover:border-adsmagnify-dark-yellow group relative overflow-hidden shadow-lg">
       {/* Animated background shimmer */}
@@ -95,16 +153,54 @@ const CourseCard = ({
                 "gemini": "/gemini.png",
                 "bolt.ai": "/bolt.png",
                 "boltai": "/bolt.png",
-                "heygen": "/heygen.webp",
+                "heygen": "/heygen.png",
                 "elevenlabs": "/elevenlabs.png",
+                "perplexity": "/perplexity.png",
+                "veo3": "/veo3.png",
+                "heraai": "/hera_ai.png",
+                "hera": "/hera_ai.png",
               };
-              const normalized = aiTools.map(t => t.toLowerCase().replace(/\s+/g, ""));
-              return normalized.slice(0, 5).map((key, idx) => (
-                <div key={`${key}-${idx}`} className="w-8 h-8 rounded-md bg-white shadow-sm overflow-hidden flex items-center justify-center">
-                  <img src={logoSrcByTool[key] || "/logo.png"} alt={`${aiTools[idx]} logo`} className="w-6 h-6 object-contain" />
-                </div>
-              ));
+              
+              // Show all AI tools that should be displayed
+              const allAiTools = [
+                "ChatGPT-5",
+                "Gemini", 
+                "Bolt.AI",
+                "Heygen",
+                "ElevenLabs",
+                "Perplexity",
+                "Veo3",
+                "Hera AI"
+              ];
+              
+              return allAiTools.map((tool, idx) => {
+                const key = tool.toLowerCase().replace(/\s+/g, "");
+                const src = logoSrcByTool[key] || "/logo.png";
+                return (
+                  <div key={`${key}-${idx}`} className="w-8 h-8 rounded-md bg-white shadow-sm overflow-hidden flex items-center justify-center">
+                    <img src={src} alt={`${tool} logo`} className="w-6 h-6 object-contain" />
+                  </div>
+                );
+              });
             })()}
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <p className="text-sm font-medium text-visible-dark flex items-center gap-2 font-satoshi">
+          <Zap className="h-4 w-4 text-visible-yellow" />
+          Marketing & SEO Tools You'll Use:
+          </p>
+          <div className={`grid gap-3 ${marketingTools.length <= 4 ? 'grid-cols-4' : marketingTools.length <= 6 ? 'grid-cols-3' : 'grid-cols-4'}`}>
+            {marketingTools.map((tool, idx) => (
+              <div key={`marketing-${idx}`} className="w-8 h-8 rounded-md bg-white shadow-sm overflow-hidden flex items-center justify-center">
+                <img 
+                  src={getMarketingToolLogo(tool)} 
+                  alt={`${tool} logo`} 
+                  className="w-6 h-6 object-contain" 
+                />
+              </div>
+            ))}
           </div>
         </div>
 

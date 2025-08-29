@@ -136,14 +136,52 @@ export default function Home() {
               { name: "ChatGPT", purpose: "Ad Copy & Strategy", logo: "/chatgpt5.png" },
               { name: "Hera AI", purpose: "AI Motion Graphics & Animation", logo: "/hera_ai.png" },
               { name: "Gemini", purpose: "Content Creation", logo: "/gemini.png" },
-              { name: "Veo3", purpose: "AI Text-to-Video Generation", logo: "/veo3.jpg" },
+              { name: "Veo3", purpose: "AI Text-to-Video Generation", logo: "/veo3.png" },
               { name: "Bolt.AI", purpose: "Automation", logo: "/bolt.png" },
-              { name: "Heygen", purpose: "AI Video Creation", logo: "/heygen.webp" },
+              { name: "Heygen", purpose: "AI Video Creation", logo: "/heygen.png" },
               { name: "ElevenLabs", purpose: "AI Voiceovers", logo: "/elevenlabs.png" }
             ].map((tool, index) => (
               <div key={tool.name} className={`bg-white-contrast p-8 rounded-2xl hover-lift animate-fade-in-up stagger-${index + 3}`}>
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-white shadow-sm animate-float">
                   <Image src={tool.logo} alt={`${tool.name} logo`} width={60} height={60} className="w-12 h-12 object-contain" />
+                </div>
+                <h3 className="font-bold text-lg mb-3 text-visible-dark font-unbounded">{tool.name}</h3>
+                <p className="text-visible-dark text-sm font-satoshi">{tool.purpose}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Tools Section */}
+      <section className="py-16 bg-gradient-to-br from-adsmagnify-dark-blue to-navy-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+            <Brain className="h-8 w-8 text-visible-yellow" />
+              <h2 className="text-3xl lg:text-4xl font-bold text-visible-white-on-dark animate-fade-in-up font-unbounded">
+                Marketing & SEO Tools
+              </h2>
+            </div>
+            <p className="text-xl text-visible-white-on-dark max-w-3xl mx-auto animate-fade-in-up stagger-2 font-satoshi">
+            Master the essential Marketing & SEO tools used by top performance marketers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center object-contain">
+            {[
+              { name: "Meta Ads", purpose: "Paid Social Advertising", logo: "meta.png" },
+              { name: "Google Ads", purpose: "Search & Performance Max", logo: "/google.png" },
+              { name: "LinkedIn Ads", purpose: "B2B Lead Generation", logo: "/linkedin.png" },
+              { name: "Pinterest", purpose: "Visual Discovery Ads", logo: "/pinterest.png" },
+              { name: "Google Search Console", purpose: "SEO Performance Tracking", logo: "/google_search_console.png" },
+              { name: "Google My Business", purpose: "Local SEO & Reviews", logo: "/google_my_business.png" },
+              { name: "Google Analytics", purpose: "Measurement & Attribution", logo: "/google_analytics.png" },
+              { name: "SEMrush", purpose: "SEO & Competitive Research", logo: "/semrush.png" },
+            ].map((tool, index) => (
+              <div key={tool.name} className={`bg-white-contrast p-8 rounded-2xl hover-lift animate-fade-in-up stagger-${index + 3}`}>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-white shadow-sm">
+                  <img src={tool.logo} alt={`${tool.name} logo`} className="w-12 h-12 object-contain" />
                 </div>
                 <h3 className="font-bold text-lg mb-3 text-visible-dark font-unbounded">{tool.name}</h3>
                 <p className="text-visible-dark text-sm font-satoshi">{tool.purpose}</p>

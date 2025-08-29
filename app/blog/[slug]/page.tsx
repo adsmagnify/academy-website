@@ -241,7 +241,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <img
                     src={post.authorImage}
                     alt={post.author}
-                    className="w-20 h-20 rounded-full object-cover"
+                    className="w-20 h-20 rounded-full object-contain bg-adsmagnify-blue"
                   />
                   <div>
                     <h3 className="text-xl font-bold text-navy-900 mb-2">

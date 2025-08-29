@@ -68,6 +68,64 @@ export default async function CoursePage({ params }: CoursePageProps) {
 
   const [mainInstructor, partnerInstructor] = instructorsData; // Read both instructors from data
 
+  // Define marketing tools based on course slug
+  const getMarketingToolsBySlug = (courseSlug: string): string[] => {
+    switch (courseSlug) {
+      case "advanced-digital-marketing":
+        return [
+          "Meta Ads",
+          "Google Ads", 
+          "LinkedIn Ads",
+          "Pinterest",
+          "Google Search Console",
+          "Google My Business",
+          "Google Analytics",
+          "SEMrush"
+        ];
+      case "ai-performance-marketing":
+        return [
+          "Meta Ads",
+          "Google Ads",
+          "LinkedIn Ads",
+          "Pinterest"
+        ];
+      case "ai-seo":
+        return [
+          "Google Search Console",
+          "Google My Business", 
+          "Google Analytics",
+          "SEMrush"
+        ];
+      default:
+        return [
+          "Meta Ads",
+          "Google Ads", 
+          "LinkedIn Ads",
+          "Pinterest",
+          "Google Analytics",
+          "SEMrush"
+        ];
+    }
+  };
+
+  // Get marketing tool logos
+  const getMarketingToolLogo = (tool: string): string => {
+    const logoMap: Record<string, string> = {
+      "meta ads": "/meta.png",
+      "google ads": "/google.png",
+      "linkedin ads": "/linkedin.png",
+      "pinterest": "/pinterest.png",
+      "google search console": "/google_search_console.png",
+      "google my business": "/google_my_business.png",
+      "google analytics": "/google_analytics.png",
+      "semrush": "/semrush.png"
+    };
+    
+    return logoMap[tool.toLowerCase()] || "/logo.png";
+  };
+
+  const marketingTools = getMarketingToolsBySlug(slug);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -228,30 +286,62 @@ export default async function CoursePage({ params }: CoursePageProps) {
               Learn industry-leading AI tools that give you a competitive advantage
             </p>
             
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
               {(() => {
                 const logoSrcByTool: Record<string, string> = {
                   "chatgpt": "/chatgpt5.png",
                   "chatgpt-5": "/chatgpt5.png",
                   "gemini": "/gemini.png",
-                  "bolt.ai": "/bolt.jpg",
+                  "bolt.ai": "/bolt.png",
                   "boltai": "/bolt.png",
-                  "heygen": "/heygen.webp",
+                  "heygen": "/heygen.png",
                   "elevenlabs": "/elevenlabs.png",
+                  "perplexity": "/perplexity.png",
+                  "veo3": "/veo3.png",
+                  "hera ai": "/hera_ai.png"
                 };
                 return course.aiTools.map((tool) => {
                   const key = tool.toLowerCase().replace(/\s+/g, "");
-                  const src = logoSrcByTool[key] || "/logo.png";
+                  const src = logoSrcByTool[key] || "/hera_ai.png";
                   return (
-                    <div key={tool} className="bg-navy-800 p-4 rounded-lg text-center">
+                    <div key={tool} className="bg-white p-4 rounded-lg text-center">
                       <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 bg-white shadow-sm overflow-hidden">
                         <img src={src} alt={`${tool} logo`} className="w-10 h-10 object-contain" />
                       </div>
-                      <h3 className="font-bold text-adsmagnify-yellow">{tool}</h3>
+                      <h3 className="font-bold text-adsmagnify-blue">{tool}</h3>
                     </div>
                   );
                 });
               })()}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Tools Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <h2 className="text-3xl lg:text-4xl font-bold text-navy-900">
+                Marketing & SEO Tools You'll Use
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 mb-8">Performance Marketing and SEO stack taught hands-on</p>
+
+            <div className={`grid gap-6 ${marketingTools.length <= 4 ? 'md:grid-cols-2 lg:grid-cols-4' : marketingTools.length <= 6 ? 'md:grid-cols-3 lg:grid-cols-3' : 'md:grid-cols-3 lg:grid-cols-4'}`}>
+              {marketingTools.map((tool) => (
+                <div key={tool} className="bg-white p-6 rounded-lg text-center border border-gray-200">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 bg-white shadow-sm overflow-hidden">
+                    <img 
+                      src={getMarketingToolLogo(tool)} 
+                      alt={`${tool} logo`} 
+                      className="w-10 h-10 object-contain" 
+                    />
+                  </div>
+                  <h3 className="font-bold text-navy-900 text-sm">{tool}</h3>
+                </div>
+              ))}
             </div>
           </div>
         </div>

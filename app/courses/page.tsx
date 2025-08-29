@@ -14,7 +14,8 @@ import {
   Target,
   Award,
   ArrowRight,
-  Star
+  Star,
+  TrendingUp
 } from "lucide-react";
 
 // Import data
@@ -33,6 +34,74 @@ export const metadata: Metadata = {
 };
 
 export default function CoursesPage() {
+  // Define marketing tools based on course slug
+  const getMarketingToolsBySlug = (courseSlug: string): string[] => {
+    switch (courseSlug) {
+      case "advanced-digital-marketing":
+        return [
+          "Meta Ads",
+          "Google Ads", 
+          "LinkedIn Ads",
+          "Pinterest",
+          "Google Search Console",
+          "Google My Business",
+          "Google Analytics",
+          "SEMrush"
+        ];
+      case "ai-performance-marketing":
+        return [
+          "Meta Ads",
+          "Google Ads",
+          "LinkedIn Ads",
+          "Pinterest"
+        ];
+      case "ai-seo":
+        return [
+          "Google Search Console",
+          "Google My Business", 
+          "Google Analytics",
+          "SEMrush"
+        ];
+      default:
+        return [
+          "Meta Ads",
+          "Google Ads", 
+          "LinkedIn Ads",
+          "Pinterest",
+          "Google Analytics",
+          "SEMrush"
+        ];
+    }
+  };
+
+  // Get marketing tool logos
+  const getMarketingToolLogo = (tool: string): string => {
+    const logoMap: Record<string, string> = {
+      "meta ads": "/meta.png",
+      "google ads": "/google.png",
+      "linkedin ads": "/linkedin.png",
+      "pinterest": "/pinterest.png",
+      "google search console": "/google_search_console.png",
+      "google my business": "/google_my_business.png",
+      "google analytics": "/google_analytics.png",
+      "semrush": "/semrush.png"
+    };
+    
+    return logoMap[tool.toLowerCase()] || "/logo.png";
+  };
+
+  // Get all unique marketing tools across all courses
+  const getAllMarketingTools = (): string[] => {
+    const allTools = new Set<string>();
+    coursesData.forEach(course => {
+      const tools = getMarketingToolsBySlug(course.slug);
+      tools.forEach(tool => allTools.add(tool));
+    });
+    return Array.from(allTools);
+  };
+
+  const allMarketingTools = getAllMarketingTools();
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -77,6 +146,38 @@ export default function CoursesPage() {
         </div>
       </section>
 
+      {/* Marketing Tools Section */}
+      <section className="py-20 bg-navy-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Brain className="h-8 w-8 text-adsmagnify-yellow" />
+              <h2 className="text-3xl lg:text-4xl font-bold text-adsmagnify-yellow">
+                Marketing & SEO Tools
+              </h2>
+            </div>
+            <p className="text-xl text-gray-300 mb-8">
+            Master the essential Marketing & SEO tools used by top performance marketers
+            </p>
+
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {allMarketingTools.map((tool, index) => (
+                <div key={tool} className="bg-white p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 bg-white shadow-sm overflow-hidden">
+                    <img 
+                      src={getMarketingToolLogo(tool)} 
+                      alt={`${tool} logo`} 
+                      className="w-10 h-10 object-contain" 
+                    />
+                  </div>
+                  <h3 className="font-bold text-adsmagnify-blue text-sm">{tool}</h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Courses Grid */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -95,7 +196,7 @@ export default function CoursesPage() {
                 <Card key={course.slug} className={`hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${index === 1 ? 'lg:scale-105 border-2 border-adsmagnify-yellow' : ''}`}>
                   {index === 1 && (
                     <div className="bg-adsmagnify-yellow text-adsmagnify-blue text-center py-2 text-sm font-bold">
-                      🔥 MOST POPULAR
+                      MOST POPULAR
                     </div>
                   )}
                   
@@ -149,16 +250,23 @@ export default function CoursesPage() {
                     <div>
                       <h4 className="font-semibold text-navy-900 mb-2 text-sm">AI Tools You'll Master:</h4>
                       <div className="flex flex-wrap gap-1">
-                        {course.aiTools.slice(0, 3).map((tool) => (
+                        {course.aiTools.map((tool) => (
                           <Badge key={tool} variant="outline" className="text-xs">
                             {tool}
                           </Badge>
                         ))}
-                        {course.aiTools.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{course.aiTools.length - 3} more
+                      </div>
+                    </div>
+
+                    {/* Marketing Tools for This Course */}
+                    <div>
+                      <h4 className="font-semibold text-navy-900 mb-2 text-sm">Marketing Tools:</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {getMarketingToolsBySlug(course.slug).map((tool) => (
+                          <Badge key={tool} variant="secondary" className="text-xs">
+                            {tool}
                           </Badge>
-                        )}
+                        ))}
                       </div>
                     </div>
 
@@ -216,38 +324,52 @@ export default function CoursesPage() {
                     <th className="p-4 text-adsmagnify-yellow font-semibold">Course</th>
                     <th className="p-4 text-adsmagnify-yellow font-semibold">Duration</th>
                     <th className="p-4 text-adsmagnify-yellow font-semibold">Price</th>
-                    <th className="p-4 text-adsmagnify-yellow font-semibold">Best For</th>
+                    <th className="p-4 text-adsmagnify-yellow font-semibold">Marketing Tools</th>
                     <th className="p-4 text-adsmagnify-yellow font-semibold">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {coursesData.map((course) => (
-                    <tr key={course.slug} className="border-b border-gray-800 hover:bg-navy-800 transition-colors">
-                      <td className="p-4">
-                        <div>
-                          <h3 className="font-semibold text-white mb-1">{course.shortName}</h3>
-                          <p className="text-gray-400 text-sm">{course.mode}</p>
-                        </div>
-                      </td>
-                      <td className="p-4 text-gray-300">{course.duration}</td>
-                      <td className="p-4">
-                        <div className="flex items-center text-adsmagnify-yellow font-bold">
-                          <IndianRupee className="h-4 w-4" />
-                          {course.priceINR.toLocaleString('en-IN')}
-                        </div>
-                      </td>
-                      <td className="p-4">
-                        <p className="text-gray-300 text-sm">{course.whoItsFor[0]}</p>
-                      </td>
-                      <td className="p-4">
-                        <Button asChild size="sm" className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-medium">
-                          <Link href={`/courses/${course.slug}`}>
-                            View Details
-                          </Link>
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
+                  {coursesData.map((course) => {
+                    const courseMarketingTools = getMarketingToolsBySlug(course.slug);
+                    return (
+                      <tr key={course.slug} className="border-b border-gray-800 hover:bg-navy-800 transition-colors">
+                        <td className="p-4">
+                          <div>
+                            <h3 className="font-semibold text-white mb-1">{course.shortName}</h3>
+                            <p className="text-gray-400 text-sm">{course.mode}</p>
+                          </div>
+                        </td>
+                        <td className="p-4 text-gray-300">{course.duration}</td>
+                        <td className="p-4">
+                          <div className="flex items-center text-adsmagnify-yellow font-bold">
+                            <IndianRupee className="h-4 w-4" />
+                            {course.priceINR.toLocaleString('en-IN')}
+                          </div>
+                        </td>
+                        <td className="p-4">
+                          <div className="flex flex-wrap gap-1">
+                            {courseMarketingTools.slice(0, 3).map((tool) => (
+                              <Badge key={tool} variant="outline" className="text-xs text-gray-300 border-gray-600">
+                                {tool}
+                              </Badge>
+                            ))}
+                            {courseMarketingTools.length > 3 && (
+                              <Badge variant="outline" className="text-xs text-gray-400 border-gray-600">
+                                +{courseMarketingTools.length - 3} more
+                              </Badge>
+                            )}
+                          </div>
+                        </td>
+                        <td className="p-4">
+                          <Button asChild size="sm" className="bg-adsmagnify-yellow hover:bg-adsmagnify-dark-yellow text-adsmagnify-blue font-medium">
+                            <Link href={`/courses/${course.slug}`}>
+                              View Details
+                            </Link>
+                          </Button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -283,7 +405,7 @@ export default function CoursesPage() {
                 {
                   title: "Lifetime Mentorship",
                   description: "Consistent support even after course completion",
-                  icon: Target
+                  icon: TrendingUp
                 },
                 {
                   title: "Job Placement Support",

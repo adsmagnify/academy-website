@@ -53,7 +53,8 @@
       "Scale ad accounts profitably and present client-ready strategies", 
       "Gain hands-on agency experience through the Shadow Internship"
     ],
-    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs"],
+    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs", "Perplexity", "Veo3", "Hera AI"],
+    "marketingTools": ["Meta Ads", "Google Ads", "LinkedIn Ads", "Pinterest"],
     "upcomingBatches": [
       {
         "startDate": "2025-09-26",
@@ -116,12 +117,13 @@
       }
     ],
     "outcomes": [
-      "Master both paid advertising and organic marketing strategies",
-      "Implement comprehensive digital marketing campaigns across all channels",
-      "Lead marketing teams and manage complex client relationships",
-      "Build and scale complete digital marketing systems for businesses"
+      "Stay Ahead with Emerging Marketing Trends & AI Tools",
+      "Create High-Impact Digital Marketing Strategies",
+      "Automate & Scale Marketing Campaigns",
+      "Develop Client Handling & Project Management Skills"
     ],
-    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs"],
+    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs", "Perplexity", "Veo3", "Hera AI"],
+    "marketingTools": ["Meta Ads", "Google Ads", "LinkedIn Ads", "Pinterest", "Google Search Console", "Google My Business", "Google Analytics", "SEMrush"],
     "upcomingBatches": [
       {
         "startDate": "2025-09-26",
@@ -189,7 +191,8 @@
       "Audit, fix, and optimize websites for higher rankings",
       "Gain hands-on SEO project experience through the Shadow Internship"
     ],
-    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs"],
+    "aiTools": ["ChatGPT-5", "Gemini", "Bolt.AI", "Heygen", "ElevenLabs", "Perplexity", "Veo3", "Hera AI"],
+    "marketingTools": ["Google Search Console", "Google My Business", "Google Analytics", "SEMrush"],
     "upcomingBatches": [
       {
         "startDate": "2025-09-26",
