@@ -23,7 +23,7 @@ const StickyCTA = () => {
             🎯 Book Your Demo Lecture Today - Only 4 Seats Per Batch!
           </p>
           <p className="text-xs md:text-sm opacity-90">
-            Next batch starts Feb 15th. Limited seats available.
+            Next batch starts Sept 20th. Limited seats available.
           </p>
         </div>
         
