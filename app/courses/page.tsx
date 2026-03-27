@@ -174,8 +174,8 @@ export default function CoursesPage() {
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Clock className="h-8 w-8 text-adsmagnify-yellow" />
-                <span className="text-sm font-medium">Weekend Batches</span>
-                <span className="text-xs text-gray-400">Flexible Schedule</span>
+                <span className="text-sm font-medium">Sunday Batches</span>
+                <span className="text-xs text-gray-400">12 PM - 3 PM</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <CheckCircle className="h-8 w-8 text-adsmagnify-yellow" />

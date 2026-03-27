@@ -36,7 +36,7 @@ export default function Home() {
       <HeroSection
         title="Best AI Digital Marketing Academy – Adsmagnify"
         subtitle="Live Projects + Shadow Internships"
-        description="Learn from industry experts with hands-on experience. Only 4 students per batch. Weekend classes in Churchgate, Mumbai."
+        description="Learn from industry experts with hands-on experience. Only 4 students per batch. Batch 9 starts 19th April – Sundays 12 PM to 3 PM in Churchgate, Mumbai."
         ctaText="Book Your Demo Lecture"
         ctaLink="/contact"
       />
@@ -108,8 +108,8 @@ export default function Home() {
               <div className="bg-adsmagnify-dark-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-adsmagnify-blue" />
               </div>
-              <h3 className="text-xl text-adsmagnify-dark-yellow font-bold mb-2 font-unbounded">Weekend Classes</h3>
-              <p className="text-gray-300 font-satoshi">Flexible timing for working professionals</p>
+              <h3 className="text-xl text-adsmagnify-dark-yellow font-bold mb-2 font-unbounded">Sunday Classes</h3>
+              <p className="text-gray-300 font-satoshi">Every Sunday, 12 PM to 3 PM for working professionals</p>
             </div>
             
             <div className="text-center">

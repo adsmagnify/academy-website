@@ -4,7 +4,7 @@
     "name": "AI Performance Marketing Course",
     "shortName": "AI Performance Marketing",
     "priceINR": 20000,
-    "duration": "8 Weeks (Weekend Batches)",
+    "duration": "8 Weeks (Sunday Batches)",
     "mode": "Offline - Classroom",
     "overview": "Master AI-driven Meta Ads (Facebook & Instagram) and Google Ads campaigns from setup to scaling, using real client accounts, the latest AI tools, and a 10-hour in-house Shadow Internship.",
     "whoItsFor": [
@@ -106,14 +106,10 @@
     "marketingTools": ["Meta Ads", "Google Ads", "LinkedIn Ads", "Pinterest"],
     "upcomingBatches": [
       {
-        "startDate": "2026-02-23",
-        "schedule": "Saturdays & Sundays, 4:00 PM - 6:00 PM",
-        "seats": "4 students only"
-      },
-      {
-        "startDate": "2026-02-23",
-        "schedule": "Saturdays & Sundays, 1:00 PM - 3:00 PM",
-        "seats": "4 students only"
+        "startDate": "2026-04-19",
+        "schedule": "Sundays, 12:00 PM - 3:00 PM",
+        "seats": "4 students only",
+        "batchName": "Batch 9"
       }
     ]
   },
@@ -122,7 +118,7 @@
     "name": "Advanced Digital Marketing Course",
     "shortName": "Advanced Digital Marketing",
     "priceINR": 25000,
-    "duration": "12 Weeks (Weekend Batches)",
+    "duration": "12 Weeks (Sunday Batches)",
     "mode": "Offline - Classroom",
     "overview": "Complete digital marketing mastery combining AI Performance Marketing and AI SEO in one comprehensive program. Master both paid advertising and organic growth strategies with advanced AI tools, live client projects, and extended 50-hour shadow internship.",
     "whoItsFor": [
@@ -234,14 +230,10 @@
     ],
     "upcomingBatches": [
       {
-        "startDate": "2026-02-23",
-        "schedule": "Saturdays & Sundays, 4:00 PM - 6:00 PM",
-        "seats": "4 students only"
-      },
-      {
-        "startDate": "2026-02-23",
-        "schedule": "Saturdays & Sundays, 1:00 PM - 3:00 PM",
-        "seats": "4 students only"
+        "startDate": "2026-04-19",
+        "schedule": "Sundays, 12:00 PM - 3:00 PM",
+        "seats": "4 students only",
+        "batchName": "Batch 9"
       }
     ]
   },
@@ -250,7 +242,7 @@
     "name": "AI SEO Course",
     "shortName": "AI SEO",
     "priceINR": 10000,
-    "duration": "4 Weeks (Weekend Batches)",
+    "duration": "4 Weeks (Sunday Batches)",
     "mode": "Offline - Classroom",
     "overview": "Rank websites faster using AI for keyword research, topical authority, and technical optimization — includes a 10-hour in-house Shadow Internship with real client projects.",
     "whoItsFor": [
@@ -357,14 +349,10 @@
     ],
     "upcomingBatches": [
       {
-        "startDate": "2026-02-23",
-        "schedule": "Saturdays & Sundays, 4:00 PM - 6:00 PM",
-        "seats": "4 students only"
-      },
-      {
-        "startDate": "2026-02-23",
-        "schedule": "Saturdays & Sundays, 1:00 PM - 3:00 PM",
-        "seats": "4 students only"
+        "startDate": "2026-04-19",
+        "schedule": "Sundays, 12:00 PM - 3:00 PM",
+        "seats": "4 students only",
+        "batchName": "Batch 9"
       }
     ]
   }

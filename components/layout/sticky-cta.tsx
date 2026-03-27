@@ -25,7 +25,7 @@ const StickyCTA = () => {
             🎯 Book Your Demo Lecture Today - Only 4 Seats Per Batch!
           </p>
           <p className="text-xs md:text-sm opacity-90">
-            Next batch starts Oct 4th. Limited seats available.
+            Batch 9 starts April 19th – Sundays 12 PM to 3 PM. Limited seats available.
           </p>
         </div>
         

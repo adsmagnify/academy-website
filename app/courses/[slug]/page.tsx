@@ -78,7 +78,7 @@ export async function generateMetadata({
       break;
     default:
       title = `${course.name} in Mumbai | AI-Powered Digital Marketing Training`;
-      description = `${course.overview} Weekend batches in Churchgate, Mumbai. Only 4 students per batch with live projects and shadow internship included.`;
+      description = `${course.overview} Sunday batches in Churchgate, Mumbai. Only 4 students per batch with live projects and shadow internship included.`;
       keywords = `${course.name.toLowerCase()}, digital marketing course Mumbai, AI marketing training, ${course.slug.replace(
         "-",
         " "

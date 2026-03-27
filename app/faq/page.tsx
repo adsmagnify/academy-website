@@ -66,7 +66,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "When are the classes held?",
-          answer: "Classes are held on weekends (Saturdays and Sundays) from 10:00 AM to 6:00 PM, specially designed for working professionals and students. Sessions are conducted in small batches of 4 students each, with 2-hour classes per batch to ensure personalized attention."
+          answer: "Classes are held on Sundays from 12:00 PM to 3:00 PM, specially designed for working professionals and students. Sessions are conducted in small batches of 4 students each to ensure personalized attention. Our Batch 9 starts on 19th April 2026."
         },
         {
           question: "What if I miss a class?",
@@ -78,7 +78,7 @@ export default function FAQPage() {
         },
         {
           question: "How long are the courses?",
-          answer: "AI Performance Marketing: 8 weeks, AI SEO: 4 weeks, Advanced Digital Marketing: 12 weeks. All courses include weekend batches with comprehensive curriculum."
+          answer: "AI Performance Marketing: 8 weeks, AI SEO: 4 weeks, Advanced Digital Marketing: 12 weeks. All courses run as Sunday batches (12 PM - 3 PM) with comprehensive curriculum. Batch 9 starts 19th April 2026."
         }
       ]
     },

@@ -230,7 +230,7 @@ const CourseCard = ({
             "Live Client Projects",
             "10-Hour Shadow Internship", 
             "Job Placement Support",
-            "Weekend Classes"
+            "Sunday Classes"
           ].map((feature, index) => (
             <div key={feature} className="flex items-center gap-2 text-xs text-visible-dark font-satoshi">
               <Star className="h-3 w-3 text-visible-yellow fill-current" />
