@@ -283,7 +283,7 @@ export default function ContactPage() {
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />
-                    <span>Only 4 students per batch</span>
+                    <span>Only 6 students per batch</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-green-600" />

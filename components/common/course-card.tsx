@@ -139,7 +139,7 @@ const CourseCard = ({
             <div className="bg-blue-100 p-2 rounded-full">
               <Users className="h-4 w-4 text-visible-blue" />
             </div>
-            <span>Only 4 Students per Batch</span>
+            <span>Only 6 Students per Batch</span>
           </div>
           <div className="flex items-center gap-3 text-sm text-visible-dark font-satoshi">
             <div className="bg-blue-100 p-2 rounded-full">
