@@ -22,10 +22,10 @@ const StickyCTA = () => {
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex-1">
           <p className="font-semibold text-sm md:text-base">
-            🎯 Book Your Demo Lecture Today - Only 4 Seats Per Batch!
+            🎯 Book Your Demo Lecture Today - Only 6 Seats Per Batch!
           </p>
           <p className="text-xs md:text-sm opacity-90">
-            Batch 9 starts April 19th – Sundays 12 PM to 3 PM. Limited seats available.
+            Batch 12 starts July 20th – Mon-Wed-Fri 7 PM to 9 PM. Limited seats available.
           </p>
         </div>
         

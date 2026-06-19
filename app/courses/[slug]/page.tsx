@@ -213,7 +213,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
                   </div>
                   <div className="flex items-center gap-2">
                     <Users className="h-4 w-4 text-adsmagnify-yellow" />
-                    <span>4 Students Only</span>
+                    <span>6 Students Only</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-adsmagnify-yellow" />
@@ -238,8 +238,8 @@ export default async function CoursePage({ params }: CoursePageProps) {
                         ₹2000 registration + flexible EMI
                       </p>
                       {slug === "ai-performance-marketing" && (
-                        <p className="text-sm font-semibold text-green-600 mt-2">
-                          5000₹ off when paid fully
+                        <p className="offer-badge-glow inline-block text-xs font-semibold text-green-700 bg-green-50 border-2 border-green-200 px-2 py-1 rounded-md mt-2">
+                           ₹5000 off when paid fully
                         </p>
                       )}
                     </div>

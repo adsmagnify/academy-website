@@ -36,7 +36,7 @@ export default function Home() {
       <HeroSection
         title="Best AI Digital Marketing Academy – Adsmagnify"
         subtitle="Live Projects + Shadow Internships"
-        description="Learn from industry experts with hands-on experience. Only 4 students per batch. Batch 9 starts 19th April – Sundays 12 PM to 3 PM in Churchgate, Mumbai."
+        description="Learn from industry experts with hands-on experience. Only 6 students per batch. Batch 12 starts 20th July | Mon-Wed-Fri 7 PM to 9 PM in Churchgate, Mumbai."
         ctaText="Book Your Demo Lecture"
         ctaLink="/contact"
       />

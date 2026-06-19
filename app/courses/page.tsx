@@ -164,7 +164,7 @@ export default function CoursesPage() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-8">
               <div className="flex flex-col items-center gap-2">
                 <Users className="h-8 w-8 text-adsmagnify-yellow" />
-                <span className="text-sm font-medium">Only 4 Students</span>
+                <span className="text-sm font-medium">Only 6 Students</span>
                 <span className="text-xs text-gray-400">Per Batch</span>
               </div>
               <div className="flex flex-col items-center gap-2">
@@ -174,8 +174,9 @@ export default function CoursesPage() {
               </div>
               <div className="flex flex-col items-center gap-2">
                 <Clock className="h-8 w-8 text-adsmagnify-yellow" />
-                <span className="text-sm font-medium">Sunday Batches</span>
-                <span className="text-xs text-gray-400">12 PM - 3 PM</span>
+                <span className="text-sm font-medium">Mon-
+                  Wed-Fri Batches</span>
+                <span className="text-xs text-gray-400">7 PM - 9 PM</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <CheckCircle className="h-8 w-8 text-adsmagnify-yellow" />
@@ -252,12 +253,12 @@ export default function CoursesPage() {
                 <Card
                   key={course.slug}
                   className={`hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${
-                    index === 1
+                    index === 0
                       ? "lg:scale-105 border-2 border-adsmagnify-yellow"
                       : ""
                   }`}
                 >
-                  {index === 1 && (
+                  {index === 0 && (
                     <div className="bg-adsmagnify-yellow text-adsmagnify-blue text-center py-2 text-sm font-bold">
                       MOST POPULAR
                     </div>
@@ -292,8 +293,8 @@ export default function CoursesPage() {
                         ₹2000 registration + EMI available
                       </p>
                       {course.slug === "ai-performance-marketing" && (
-                        <p className="text-sm font-semibold text-green-600 mt-2">
-                          5000₹ off when paid fully
+                        <p className="offer-badge-glow inline-block text-xs font-semibold text-green-700 bg-green-50 border-2 border-green-200 px-2 py-1 rounded-md mt-2">
+                           ₹5000 off when paid fully
                         </p>
                       )}
                     </div>
@@ -307,7 +308,7 @@ export default function CoursesPage() {
                       <div className="flex items-center gap-3 text-sm">
                         <Users className="h-4 w-4 text-adsmagnify-yellow flex-shrink-0" />
                         <span className="text-gray-700">
-                          Only 4 Students Per Batch
+                          Only 6 Students Per Batch
                         </span>
                       </div>
                       <div className="flex items-center gap-3 text-sm">
