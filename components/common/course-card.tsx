@@ -98,7 +98,7 @@ const CourseCard = ({
       <div className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
       {/* Floating badge */}
-      {slug === "advanced-digital-marketing" && (
+      {slug === "ai-performance-marketing" && (
         <div className="absolute -top-2 -right-2 bg-adsmagnify-dark-yellow text-visible-blue px-3 py-1 rounded-full text-xs font-bold animate-pulse-glow font-satoshi">
           Popular
         </div>
