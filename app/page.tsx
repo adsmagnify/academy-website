@@ -93,7 +93,7 @@ export default function Home() {
                 <Users className="h-8 w-8 text-adsmagnify-blue" />
               </div>
               <h3 className="text-xl text-adsmagnify-dark-yellow font-bold mb-2 font-unbounded">Small Batch Size</h3>
-              <p className="text-gray-300 font-satoshi">Only 4 students per batch for personalized attention</p>
+              <p className="text-gray-300 font-satoshi">Only 6 students per batch for personalized attention</p>
             </div>
             
             <div className="text-center">
@@ -193,7 +193,7 @@ export default function Home() {
           </h2>
           <p className="text-xl text-white mb-10 max-w-2xl mx-auto font-satoshi">
             Book your demo lecture today and experience our unique teaching methodology. 
-            Limited seats available - only 4 students per batch!
+            Limited seats available - only 6 students per batch!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -225,7 +225,7 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center gap-3 bg-white p-4 rounded-xl">
               <Star className="h-5 w-5 text-yellow-500" />
-              <span className="font-medium text-gray-800">4 Students Per Batch</span>
+              <span className="font-medium text-gray-800">6 Students Per Batch</span>
             </div>
             <div className="flex items-center justify-center gap-3 bg-white p-4 rounded-xl">
               <Phone className="h-5 w-5 text-blue-600" />
