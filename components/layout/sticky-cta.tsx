@@ -25,7 +25,7 @@ const StickyCTA = () => {
             🎯 Book Your Demo Lecture Today - Only 6 Seats Per Batch!
           </p>
           <p className="text-xs md:text-sm opacity-90">
-            Batch 12 starts July 20th – Mon-Wed-Fri 7 PM to 9 PM. Limited seats available.
+            Batch 12 starts August 3rd – Mon-Wed-Fri 7 PM to 9 PM. Limited seats available.
           </p>
         </div>
         
